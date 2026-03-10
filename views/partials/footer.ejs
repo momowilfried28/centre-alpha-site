@@ -1,18 +1,30 @@
 <footer class="site-footer site-footer-centered">
   <div class="footer-inner">
-    <nav class="footer-nav">
-      <a href="/Temoignage">Temoignage</a>
+    <div class="footer-address">
+      <a
+        href="https://www.google.com/maps/place/125+Rue+Principale,+Granby,+QC+J2G+2T9"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer-localisation">
+        📍 125 Rue Principale, Granby, QC J2G 2T9
+      </a>
+    </div>
+
+    <nav class="footer-nav" aria-label="Pied de page">
       <a href="/faire-un-don">Faire un don</a>
       <a href="/benevole">Bénévole</a>
+      <a href="/Temoignage">Témoignages</a>
       <a href="/contact">Nous joindre</a>
     </nav>
+
     <div class="footer-social">
-      <a href="#" class="footer-social-link" aria-label="Facebook"
-        ><span class="footer-social-icon">f</span></a
-      >
+      <a href="#" class="footer-social-link" aria-label="Facebook">
+        <span class="footer-social-icon footer-social-fb">f</span>
+      </a>
     </div>
+
     <p class="footer-copy">
-      Copyright ©<%= new Date().getFullYear() %> Tous droits réservés | Fait
+      Copyright © <%= new Date().getFullYear() %> Tous droits réservés | Fait
       avec ❤️ par <span class="footer-brand">Momok</span>
     </p>
   </div>
