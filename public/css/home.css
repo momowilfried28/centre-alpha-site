@@ -320,4 +320,25 @@
   .accueil-container {
     margin: 30px auto;
   }
+  /* Étiquette visible au chargement */
+.etiquette-wrap {
+  position: fixed;
+  top: 20px;          /* ou bottom: 20px; pour en bas */
+  right: 20px;        /* ou left: 20px; */
+  z-index: 9999;
+  opacity: 0;
+  animation: etiquette-appear 0.6s ease forwards;
+}
+
+.etiquette-img {
+  display: block;
+  width: 120px;       /* adapte la taille */
+  height: auto;
+}
+
+@keyframes etiquette-appear {
+  to {
+    opacity: 1;
+  }
+}
 }
