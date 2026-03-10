@@ -107,7 +107,7 @@
   transition: color 0.2s ease;
 }
 
-.site-footer-centered .footer-localisation:hover {
+.footer-localisation:hover {
   color: #00fff3;
   font-weight: 600;
 }
