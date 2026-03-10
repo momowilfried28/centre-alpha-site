@@ -4,6 +4,8 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
 }
 
 .accueil-container {
@@ -11,6 +13,7 @@
   margin: 80px auto;
   text-align: center;
   padding: 0 20px;
+  flex: 1;
 }
 
 .accueil-titre {
@@ -73,7 +76,6 @@
 }
 
 .site-footer {
-  margin-top: auto;
   background: #101c35;
   color: #e2e4e8;
   font-family: "Poppins", sans-serif;
@@ -90,8 +92,8 @@
   font-size: 1.75rem;
   font-weight: 700;
   color: #ffff;
-  margin: 0 0 1.5rem;
   letter-spacing: 0.02em;
+  margin: 0 0 1.5rem;
 }
 
 .site-footer-centered .footer-nav {
@@ -140,7 +142,7 @@
 }
 
 .site-footer-centered .footer-social-link:hover {
-  background: #8bc34a;
+  background: #604ac3;
   border-color: #8bc34a;
   transform: scale(1.05);
 }
@@ -156,9 +158,6 @@
   font-weight: 600;
 }
 
-/* ===== Media queries – tous les breakpoints ===== */
-
-/* Extra small (téléphones portrait, < 576px) */
 @media (max-width: 575.98px) {
   .accueil-container {
     margin: 40px auto;
@@ -197,7 +196,6 @@
   }
 }
 
-/* Small (téléphones paysage, ≥ 576px) */
 @media (min-width: 576px) and (max-width: 767.98px) {
   .accueil-container {
     margin: 50px auto;
@@ -217,7 +215,6 @@
   }
 }
 
-/* Medium (tablettes, ≥ 768px) */
 @media (min-width: 768px) and (max-width: 991.98px) {
   .accueil-container {
     margin: 60px auto;
@@ -233,7 +230,6 @@
   }
 }
 
-/* Large (petits desktop, ≥ 992px) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .accueil-container {
     margin: 70px auto;
@@ -248,7 +244,6 @@
   }
 }
 
-/* Extra large (desktop, ≥ 1200px) – déjà partiellement défini */
 @media (min-width: 1200px) {
   .accueil-container {
     margin: 80px auto;
@@ -270,7 +265,6 @@
   }
 }
 
-/* Extra extra large (grands écrans, ≥ 1400px) */
 @media (min-width: 1400px) {
   .accueil-container {
     max-width: 900px;
@@ -291,19 +285,6 @@
   }
 }
 
-/* Préférence reduced-motion (accessibilité) */
-@media (prefers-reduced-motion: reduce) {
-  .fade-in {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-  .site-footer-centered .footer-social-link:hover {
-    transform: none;
-  }
-}
-
-/* Hauteur courte (landscape mobile) */
 @media (max-height: 500px) and (orientation: landscape) {
   .hero-section {
     min-height: auto;

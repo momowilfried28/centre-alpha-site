@@ -10920,13 +10920,11 @@ h5,
 }
 /* background de la page d'accueil */
 .hero-section {
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    /* padding: 10px 0; */
-    text-align: center;
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* padding: 10px 0; */
+  text-align: center;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
-
-
