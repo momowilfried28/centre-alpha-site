@@ -25,50 +25,92 @@
   </head>
 
   <body class="hero-section">
-    <!--utilisation d'une vue  partial pour le nav 
-    template de colorlib -->
     <%- include('partials/navbar') %>
 
     <main class="accueil-container">
-      <h1 class="accueil-titre fade-in">Bienvenue au Centre Alpha Granby</h1>
-      <p class="accueil-slogan fade-in delay-3">
-        Apprendre à son rythme, grandir avec confiance.
-      </p>
+      <section class="accueil-hero fade-in" aria-label="Accueil">
+        <div class="accueil-hero__intro">
+          <h1 class="accueil-titre">Bienvenue au Centre Alpha Granby</h1>
+          <p class="accueil-slogan">
+            Apprendre à son rythme, grandir avec confiance.
+          </p>
+          <div class="accueil-hero__actions">
+            <a class="accueil-btn accueil-btn--primary" href="#mission">
+              Commencer mon parcours
+            </a>
+            <a class="accueil-btn accueil-btn--secondary" href="/services">
+              Découvrir nos services
+            </a>
+          </div>
+        </div>
+        <div class="accueil-hero__visual">
+          <img
+            src="/images/06dc1-alpha_devant1.png"
+            alt="Illustration du Centre Alpha"
+            class="accueil-hero__img"
+            width="640"
+            height="480" />
+        </div>
+      </section>
 
-      <div class="accueil-pair fade-in delay-2">
-        <img
-          src="/images/06dc1-alpha_devant1.png"
-          alt="Illustration"
-          class="accueil-gif" />
-        <p class="accueil-texte">
-          Notre mission est de promouvoir l’alphabétisation des personnes peu
-          scolarisées et de faciliter leur intégration sociale. Nous les
-          accompagnons pour développer leurs compétences en lecture, en
-          écriture, en calcul et dans tout autre apprentissage menant à une plus
-          grande autonomie.
-        </p>
-      </div>
-      <div class="accueil-pair fade-in delay-3">
-        <p class="accueil-texte">
-          Nous œuvrons également à sensibiliser la population à l’analphabétisme
-          et à la réalité quotidienne que vivent ces personnes, tant sur le plan
-          personnel que sociétal.Malgré les défis, nous croyons fermement que
-          chaque individu a le potentiel de surmonter les obstacles liés à
-          l’analphabétisme.
-        </p>
-        <img src="/images/pers1.jpg" alt="Illustration" class="accueil-gif" />
-      </div>
-      <div class="accueil-pair fade-in delay-4">
-        <img
-          src="/images/personne4.jpg"
-          alt="Illustration"
-          class="accueil-gif" />
-        <p class="accueil-texte">
-          Rejoignez-nous dans notre mission pour créer un monde où chacun a la
-          chance d’apprendre et de s’épanouir, peu importe son parcours ou ses
-          défis.
-        </p>
-      </div>
+      <section id="mission" class="accueil-mission fade-in delay-2">
+        <div class="accueil-mission__visual">
+          <img
+            src="/images/pers1.jpg"
+            alt="Accompagnement au Centre Alpha"
+            class="accueil-mission__img"
+            width="560"
+            height="560" />
+        </div>
+        <div class="accueil-mission__content">
+          <h2 class="accueil-mission__title">
+            <span class="accueil-mission__bar" aria-hidden="true"></span>
+            Notre Mission
+          </h2>
+          <p class="accueil-texte accueil-texte--mission">
+            Notre mission est de promouvoir l’alphabétisation des personnes peu
+            scolarisées et de faciliter leur intégration sociale. Nous les
+            accompagnons pour développer leurs compétences en lecture, en
+            écriture, en calcul et dans tout autre apprentissage menant à une
+            plus grande autonomie.
+          </p>
+          <p class="accueil-texte accueil-texte--mission">
+            Nous œuvrons également à sensibiliser la population à
+            l’analphabétisme et à la réalité quotidienne que vivent ces
+            personnes, tant sur le plan personnel que sociétal.
+          </p>
+          <ul class="accueil-checklist">
+            <li class="accueil-checklist__item">Lecture &amp; Écriture</li>
+            <li class="accueil-checklist__item">Calcul &amp; Logique</li>
+            <li class="accueil-checklist__item">Autonomie Numérique</li>
+            <li class="accueil-checklist__item">Inclusion Sociale</li>
+          </ul>
+        </div>
+      </section>
+      <section id="mission" class="accueil-mission fade-in delay-2">
+        <div class="accueil-mission__content">
+          <h2 class="accueil-mission__title">
+            <span class="accueil-mission__bar" aria-hidden="true"></span>
+            Rejoins-nous
+          </h2>
+          <p class="accueil-texte accueil-texte--mission">
+            Un milieu de vie chaleureux et convivial, dédié à l’alphabétisation
+            et au développement du potentiel humain. Rejoins le Centre Alpha et
+            contribue à créer un monde où chacun peut apprendre, grandir et
+            s’épanouir, peu importe son parcours ou ses défis. Nous sommes là
+            pour t’accompagner. N’hésite pas à t’inscrire ,on peut vraiment
+            t’aider.
+          </p>
+        </div>
+        <div class="accueil-mission__visual">
+          <img
+            src="/images/personne4.jpg"
+            alt="Accompagnement au Centre Alpha"
+            class="accueil-mission__img"
+            width="560"
+            height="560" />
+        </div>
+      </section>
     </main>
 
     <script src="/js/jquery.min.js"></script>

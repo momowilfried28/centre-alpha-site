@@ -1,4 +1,3 @@
-
 html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
@@ -11,138 +10,265 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  background-image: url("/images/drew-beamer-kUHfMW8awpE-unsplash.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: linear-gradient(165deg, #f3efff 0%, #faf9fc 38%, #eef5f3 100%);
   display: flex;
   flex-direction: column;
 }
 
-.accueil-pair {
-  display: flex;
-  align-items: stretch;
-  justify-content: stretch;
-  gap: 0;
+.accueil-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
   text-align: left;
-  margin-bottom: 28px;
-  width: 100%;
-  min-height: 280px;
-  background: #f8f8f8;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  padding: 0.5rem 0 1rem;
+}
+
+.accueil-hero__intro {
+  max-width: 34rem;
+}
+
+.accueil-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin-top: 1.75rem;
+}
+
+.accueil-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.35rem;
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  text-decoration: none;
+  border-radius: 999px;
   border: none;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-  overflow: hidden;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
 }
 
-.accueil-pair:last-child {
-  margin-bottom: 0;
+.accueil-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.94;
+  color: #fff;
 }
 
-.accueil-gif {
-  width: 40%;
+.accueil-btn--primary {
+  background: linear-gradient(135deg, #6d28d9, #7c3aed);
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(109, 40, 217, 0.35);
+}
+
+.accueil-btn--primary:hover {
+  color: #fff;
+}
+
+.accueil-btn--secondary {
+  background: #0f766e;
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(15, 118, 110, 0.25);
+}
+
+.accueil-btn--secondary:hover {
+  color: #fff;
+}
+
+.accueil-hero__visual {
+  position: relative;
+}
+
+.accueil-hero__img {
+  width: 100%;
   height: auto;
-  min-height: 220px;
-  max-height: 280px;
-  flex: 0 0 40%;
-  max-width: none;
+  max-height: min(420px, 52vh);
   object-fit: cover;
-  object-position: center;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
   display: block;
-  border-radius: 0;
-  align-self: center;
 }
 
-.accueil-pair .accueil-gif:first-child {
-  border-radius: 14px 0 0 14px;
+.accueil-mission {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.75rem, 4vw, 3rem);
+  align-items: center;
+  text-align: left;
+  padding: clamp(1.35rem, 3vw, 2.1rem);
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(109, 40, 217, 0.1);
+  box-shadow:
+    0 4px 6px rgba(15, 23, 42, 0.04),
+    0 18px 44px rgba(15, 23, 42, 0.08);
 }
 
-.accueil-pair .accueil-gif:last-child {
-  border-radius: 0 14px 14px 0;
-}
-
-.accueil-pair .accueil-texte {
-  margin: 0;
-  flex: 0 0 60%;
-  width: 60%;
-  padding: 36px 34px;
+.accueil-mission__visual {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0f172a;
-  background: #f8f8f8;
 }
 
-.accueil-pair .accueil-slogan {
-  margin-bottom: 0;
+.accueil-mission__img {
+  width: 100%;
+  max-width: min(350px, 88vw);
+  max-height: min(350px, 88vw);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 1.25rem;
+  display: block;
+  margin-inline: auto;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
 }
 
-@media (max-width: 768px) {
-  .accueil-pair {
-    flex-direction: column;
+.accueil-mission__title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+  color: #6d28d9;
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.accueil-mission__bar {
+  width: 4px;
+  height: 1.15em;
+  flex-shrink: 0;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #6d28d9, #9333ea);
+}
+
+.accueil-texte--mission {
+  margin-bottom: 1rem;
+  text-align: left;
+  font-weight: 400;
+}
+
+.accueil-texte--mission:last-of-type {
+  margin-bottom: 1.35rem;
+}
+
+.accueil-checklist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem 1.5rem;
+}
+
+.accueil-checklist__item {
+  position: relative;
+  padding-left: 1.85rem;
+  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: #1e293b;
+}
+
+.accueil-checklist__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.12em;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #2dd4bf, #0d9488);
+  border: none;
+  box-shadow: 0 2px 6px rgba(13, 148, 136, 0.35);
+}
+
+.accueil-checklist__item::after {
+  content: "✓";
+  position: absolute;
+  left: 0.3rem;
+  top: 0.02em;
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .accueil-hero,
+  .accueil-mission {
+    grid-template-columns: 1fr;
+  }
+
+  .accueil-hero__intro {
+    max-width: none;
     text-align: center;
-    align-items: center;
-    min-height: auto;
-    margin-bottom: 22px;
   }
-  .accueil-gif {
-    width: 100%;
-    max-width: 100%;
-    min-height: 200px;
-    max-height: 260px;
-    border-radius: 0;
-    align-self: center;
+
+  .accueil-hero__actions {
+    justify-content: center;
   }
-  .accueil-pair .accueil-gif:first-child {
-    border-radius: 14px 14px 0 0;
+
+  .accueil-mission__visual {
+    order: -1;
   }
-  .accueil-pair .accueil-gif:last-child {
-    border-radius: 0 0 14px 14px;
-  }
-  .accueil-pair .accueil-texte {
-    width: 100%;
-    flex: 1 1 auto;
-    padding: 24px 18px;
+
+  .accueil-checklist {
+    grid-template-columns: 1fr;
   }
 }
+
 .accueil-container {
   max-width: 1140px;
   width: 100%;
   margin: 20px auto;
   text-align: center;
-  padding: 0 20px;
   flex: 1;
-  padding: 0 6px;
+  padding: 0 clamp(12px, 3vw, 20px);
 }
 
 .accueil-titre {
   font-family: "Satisfy", cursive;
   font-size: 2.95rem;
-  font-weight: 500;
+  font-weight: 800;
   margin-bottom: 15px;
-  color: rebeccapurple;
+  color: #6d28d9;
   letter-spacing: 0.02em;
 }
 
 .accueil-slogan {
-  font-family: "Bungee", cursive;
-  font-size: 1.25rem;
-  font-weight: bold;
-  line-height: 1.0;
-  letter-spacing: 0.0em;
-  color: rgb(70, 11, 11);
-  margin-bottom: 30px;
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-size: 1.1rem;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: #334155;
+  margin: 0 0 0.25rem;
+  max-width: 36rem;
 }
 
-.accueil-photo {
-  width: 100%;
-  max-width: min(560px, 100%);
-  height: auto;
-  display: block;
-  margin: 0 auto 24px auto;
-  border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.2);
+.accueil-hero .accueil-slogan {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 901px) {
+  .accueil-hero .accueil-slogan {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .accueil-texte {
@@ -160,26 +286,15 @@ html {
   margin-bottom: 20px;
   -webkit-font-smoothing: antialiased;
 }
+
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.9s ease forwards;
 }
 
-.delay-1 {
-  animation-delay: 0.3s;
-}
-
 .delay-2 {
   animation-delay: 0.6s;
-}
-
-.delay-3 {
-  animation-delay: 0.9s;
-}
-
-.delay-4 {
-  animation-delay: 1.2s;
 }
 
 @keyframes fadeInUp {
@@ -410,9 +525,6 @@ html {
   }
 }
 
-
-  
-
 @media (max-height: 500px) and (orientation: landscape) {
   .hero-section {
     min-height: auto;
@@ -421,11 +533,13 @@ html {
   .accueil-container {
     margin: 30px auto;
   }
-  /* Étiquette visible au chargement */
+}
+
+/* Étiquette visible au chargement */
 .etiquette-wrap {
   position: fixed;
-  top: 20px;          /* ou bottom: 20px; pour en bas */
-  right: 20px;        /* ou left: 20px; */
+  top: 20px;
+  right: 20px;
   z-index: 9999;
   opacity: 0;
   animation: etiquette-appear 0.6s ease forwards;
@@ -433,7 +547,7 @@ html {
 
 .etiquette-img {
   display: block;
-  width: 120px;       /* adapte la taille */
+  width: 120px;
   height: auto;
 }
 
@@ -441,5 +555,4 @@ html {
   to {
     opacity: 1;
   }
-}
 }
