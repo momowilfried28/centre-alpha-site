@@ -2,12 +2,20 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Centre Alpha – Accueil</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet" />
 
     <link rel="stylesheet" href="/css/bootstrap.min.css" />
@@ -22,29 +30,45 @@
     <%- include('partials/navbar') %>
 
     <main class="accueil-container">
-      <h1 class="accueil-titre fade-in">Bienvenue au Centre Alpha</h1>
-
-      <p class="accueil-slogan fade-in delay-1">
+      <h1 class="accueil-titre fade-in">Bienvenue au Centre Alpha Granby</h1>
+      <p class="accueil-slogan fade-in delay-3">
         Apprendre à son rythme, grandir avec confiance.
       </p>
 
-      <p class="accueil-texte fade-in delay-2">
-        Notre mission est de promouvoir l’alphabétisation des personnes peu
-        scolarisées et de faciliter leur intégration sociale. Nous les
-        accompagnons pour développer leurs compétences en lecture, en écriture,
-        en calcul et dans tout autre apprentissage menant à une plus grande
-        autonomie.
-      </p>
-
-      <p class="accueil-texte fade-in delay-3">
-        Nous œuvrons également à sensibiliser la population à l’analphabétisme
-        et à la réalité quotidienne que vivent ces personnes, tant sur le plan
-        personnel que sociétal.
-      </p>
-      <p class="accueil-texte fade-in delay-3">
-        On peut t’aider! N’hésite pas à t’inscrire. Chacun travaille à son
-        rythme.
-      </p>
+      <div class="accueil-pair fade-in delay-2">
+        <img
+          src="/images/06dc1-alpha_devant1.png"
+          alt="Illustration"
+          class="accueil-gif" />
+        <p class="accueil-texte">
+          Notre mission est de promouvoir l’alphabétisation des personnes peu
+          scolarisées et de faciliter leur intégration sociale. Nous les
+          accompagnons pour développer leurs compétences en lecture, en
+          écriture, en calcul et dans tout autre apprentissage menant à une plus
+          grande autonomie.
+        </p>
+      </div>
+      <div class="accueil-pair fade-in delay-3">
+        <p class="accueil-texte">
+          Nous œuvrons également à sensibiliser la population à l’analphabétisme
+          et à la réalité quotidienne que vivent ces personnes, tant sur le plan
+          personnel que sociétal.Malgré les défis, nous croyons fermement que
+          chaque individu a le potentiel de surmonter les obstacles liés à
+          l’analphabétisme.
+        </p>
+        <img src="/images/pers1.jpg" alt="Illustration" class="accueil-gif" />
+      </div>
+      <div class="accueil-pair fade-in delay-4">
+        <img
+          src="/images/personne4.jpg"
+          alt="Illustration"
+          class="accueil-gif" />
+        <p class="accueil-texte">
+          Rejoignez-nous dans notre mission pour créer un monde où chacun a la
+          chance d’apprendre et de s’épanouir, peu importe son parcours ou ses
+          défis.
+        </p>
+      </div>
     </main>
 
     <script src="/js/jquery.min.js"></script>

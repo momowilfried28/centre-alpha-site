@@ -1,5 +1,16 @@
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 .hero-section {
   min-height: 100vh;
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   background-image: url("/images/drew-beamer-kUHfMW8awpE-unsplash.jpg");
   background-size: cover;
   background-position: center;
@@ -8,33 +19,146 @@
   flex-direction: column;
 }
 
+.accueil-pair {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  gap: 0;
+  text-align: left;
+  margin-bottom: 28px;
+  width: 100%;
+  min-height: 280px;
+  background: #f8f8f8;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
+.accueil-pair:last-child {
+  margin-bottom: 0;
+}
+
+.accueil-gif {
+  width: 40%;
+  height: auto;
+  min-height: 220px;
+  max-height: 280px;
+  flex: 0 0 40%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 0;
+  align-self: center;
+}
+
+.accueil-pair .accueil-gif:first-child {
+  border-radius: 14px 0 0 14px;
+}
+
+.accueil-pair .accueil-gif:last-child {
+  border-radius: 0 14px 14px 0;
+}
+
+.accueil-pair .accueil-texte {
+  margin: 0;
+  flex: 0 0 60%;
+  width: 60%;
+  padding: 36px 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  background: #f8f8f8;
+}
+
+.accueil-pair .accueil-slogan {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .accueil-pair {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    min-height: auto;
+    margin-bottom: 22px;
+  }
+  .accueil-gif {
+    width: 100%;
+    max-width: 100%;
+    min-height: 200px;
+    max-height: 260px;
+    border-radius: 0;
+    align-self: center;
+  }
+  .accueil-pair .accueil-gif:first-child {
+    border-radius: 14px 14px 0 0;
+  }
+  .accueil-pair .accueil-gif:last-child {
+    border-radius: 0 0 14px 14px;
+  }
+  .accueil-pair .accueil-texte {
+    width: 100%;
+    flex: 1 1 auto;
+    padding: 24px 18px;
+  }
+}
 .accueil-container {
-  max-width: 850px;
-  margin: 80px auto;
+  max-width: 1140px;
+  width: 100%;
+  margin: 20px auto;
   text-align: center;
   padding: 0 20px;
   flex: 1;
+  padding: 0 6px;
 }
 
 .accueil-titre {
-  font-size: 2.8rem;
-  font-weight: 600;
+  font-family: "Satisfy", cursive;
+  font-size: 2.95rem;
+  font-weight: 500;
   margin-bottom: 15px;
-  color: #222;
+  color: rebeccapurple;
+  letter-spacing: 0.02em;
 }
 
 .accueil-slogan {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: #0077ff;
+  font-family: "Bungee", cursive;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.0;
+  letter-spacing: 0.0em;
+  color: rgb(70, 11, 11);
   margin-bottom: 30px;
 }
 
+.accueil-photo {
+  width: 100%;
+  max-width: min(560px, 100%);
+  height: auto;
+  display: block;
+  margin: 0 auto 24px auto;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.2);
+}
+
 .accueil-texte {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #444;
+  font-family:
+    "Inter",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: -0.015em;
+  color: #0f172a;
   margin-bottom: 20px;
+  -webkit-font-smoothing: antialiased;
 }
 .fade-in {
   opacity: 0;
@@ -52,6 +176,10 @@
 
 .delay-3 {
   animation-delay: 0.9s;
+}
+
+.delay-4 {
+  animation-delay: 1.2s;
 }
 
 @keyframes fadeInUp {
@@ -176,17 +304,18 @@
 
 @media (max-width: 575.98px) {
   .accueil-container {
-    margin: 40px auto;
-    padding: 0 16px;
+    margin: 24px auto;
+    padding: 0 6px;
   }
   .accueil-titre {
-    font-size: 1.75rem;
+    font-size: 2.15rem;
   }
   .accueil-slogan {
     font-size: 1.1rem;
   }
   .accueil-texte {
-    font-size: 1rem;
+    font-size: 1.0625rem;
+    font-weight: 500;
   }
   .site-footer-centered .footer-inner {
     padding: 1.5rem 1rem;
@@ -214,11 +343,11 @@
 
 @media (min-width: 576px) and (max-width: 767.98px) {
   .accueil-container {
-    margin: 50px auto;
-    padding: 0 24px;
+    margin: 28px auto;
+    padding: 0 8px;
   }
   .accueil-titre {
-    font-size: 2rem;
+    font-size: 2.35rem;
   }
   .accueil-slogan {
     font-size: 1.2rem;
@@ -233,10 +362,10 @@
 
 @media (min-width: 768px) and (max-width: 991.98px) {
   .accueil-container {
-    margin: 60px auto;
+    margin: 32px auto;
   }
   .accueil-titre {
-    font-size: 2.4rem;
+    font-size: 2.35rem;
   }
   .site-footer-centered .footer-inner {
     padding: 2rem 1.5rem;
@@ -248,10 +377,10 @@
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .accueil-container {
-    margin: 70px auto;
+    margin: 36px auto;
   }
   .accueil-titre {
-    font-size: 2.6rem;
+    font-size: 2.55rem;
   }
   #ftco-navbar .navbar-nav .nav-link {
     padding-left: 18px !important;
@@ -262,10 +391,10 @@
 
 @media (min-width: 1200px) {
   .accueil-container {
-    margin: 80px auto;
+    margin: 30px auto;
   }
   .accueil-titre {
-    font-size: 2.8rem;
+    font-size: 3.15rem;
   }
   #ftco-navbar .navbar-nav .nav-link {
     padding-left: 30px !important;
@@ -281,36 +410,8 @@
   }
 }
 
-@media (min-width: 1400px) {
-  .accueil-container {
-    max-width: 900px;
-    margin: 90px auto;
-  }
-  .accueil-titre {
-    font-size: 3rem;
-  }
-  .site-footer-centered .footer-inner {
-    max-width: 1000px;
-    padding: 1rem 0.25rem;
-  }
-  .site-footer-centered .footer-logo {
-    font-size: 2rem;
-  }
-  .site-footer-centered .footer-nav a {
-    font-size: 0.9rem;
-  }
-  .footer-social-icon {
-    font-size: 1.5rem;
-    font-weight: 600;
-    background-color: #3b5998;
-    border-radius: 50%;
-    width: 2rem;
-    height: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
+
+  
 
 @media (max-height: 500px) and (orientation: landscape) {
   .hero-section {
