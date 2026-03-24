@@ -1,0 +1,361 @@
+.accueil-hero__img {
+  width: 100%;
+  height: auto;
+  max-height: min(390px, 52vh);
+  object-fit: cover;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+  display: block;
+}
+body.page-services main.accueil-container.services-page {
+  max-width: 1140px;
+  width: 100%;
+  text-align: left;
+}
+
+body.page-services main.accueil-container.services-page > * {
+  width: 100%;
+  max-width: none;
+}
+
+.page-services .intro-texte,
+.page-services .paragraphe,
+.page-services .papiers-intro,
+.page-services .rdv-desc {
+  max-width: none;
+  width: 100%;
+}
+
+/* Intro */
+.page-services .intro {
+  padding: clamp(1.25rem, 3vw, 2rem) 0 clamp(2rem, 4vw, 3rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  border-radius: 1.25rem;
+}
+
+.page-services .intro-titre {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 4.5vw, 2.85rem);
+  color: #1d4ed8;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+  line-height: 1.15;
+  width: 100%;
+}
+
+.page-services .intro-texte {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.65;
+  color: #334155;
+  margin: 0;
+}
+
+.page-services .formation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+  align-items: start;
+  width: 100%;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.page-services .formation-photo {
+  position: relative;
+  width: 100%;
+}
+
+.page-services .formation .formation-cadre {
+  max-width: min(420px, 100%);
+  margin-inline: auto;
+  border-radius: 1.75rem;
+  overflow: hidden;
+  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.12);
+  aspect-ratio: 4 / 5;
+  width: 100%;
+}
+
+.page-services .formation-cadre img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.page-services .formation-texte {
+  width: 100%;
+  min-width: 0;
+}
+
+.page-services .formation-titre {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  color: #21359a;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+  width: 100%;
+}
+
+.page-services .souligne {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.page-services .paragraphe {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0 0 1rem;
+}
+
+.page-services .points {
+  list-style: none;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.page-services .point {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.1rem 1.25rem;
+  background: #fff;
+  border-radius: 1.1rem;
+  border: 1px solid rgba(109, 40, 217, 0.12);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.05);
+  width: 100%;
+}
+
+.page-services .point-icone {
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d4ed8;
+  font-size: 0.9rem;
+}
+
+.page-services .point-contenu {
+  flex: 1;
+  min-width: 0;
+}
+
+.page-services .point-titre {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #21359a;
+  margin: 0 0 0.35rem;
+}
+
+.page-services .point .paragraphe {
+  margin: 0;
+}
+
+/* Papiers / formulaires */
+.page-services .papiers {
+  padding: clamp(1.5rem, 3vw, 2.25rem) 0;
+}
+
+.page-services .papiers-entete {
+  text-align: center;
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+  width: 100%;
+}
+
+.page-services .papiers-titre {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: #21359a;
+  margin: 0 0 1rem;
+  width: 100%;
+}
+
+.page-services .papiers-titre::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #7c3aed, #9333ea);
+}
+
+.page-services .papiers-intro {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-services .papiers-cartes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  width: 100%;
+  align-items: stretch;
+}
+
+.page-services .fiche {
+  background: #fff;
+  border-radius: 1.5rem;
+  padding: 1.35rem 1.35rem 1.5rem;
+  border: 1px solid rgba(109, 40, 217, 0.1);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+.page-services .fiche-bleu {
+  background: linear-gradient(155deg, #3c4eb2 0%, #21359a 100%);
+  border-color: transparent;
+  color: #fff;
+  transform: translateY(-0.35rem);
+  box-shadow: 0 20px 44px rgba(33, 53, 154, 0.35);
+}
+
+.page-services .fiche-titre {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin: 0 0 1rem;
+  color: #21359a;
+  width: 100%;
+}
+
+.page-services .fiche-bleu .fiche-titre {
+  color: #fff;
+}
+
+.page-services .liste {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #475569;
+  width: 100%;
+}
+
+.page-services .fiche-bleu .liste {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.page-services .liste-ok {
+  list-style: none;
+  padding-left: 0;
+}
+
+.page-services .liste-ok li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-services .liste-ok li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  font-weight: 800;
+  color: #c4cbff;
+}
+
+.page-services .liste-simple {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+
+.page-services .liste-simple li {
+  margin-bottom: 0.45rem;
+}
+
+/* Rendez-vous */
+.page-services .rdv {
+  width: 100%;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.page-services .rdv-fond {
+  padding: clamp(1.75rem, 4vw, 2.75rem) clamp(1.5rem, 4vw, 2.5rem);
+  background: linear-gradient(145deg, #cca0ff 0%, #dab9ff 55%, #efdbff 100%);
+  border-radius: 2rem;
+  box-shadow: 0 18px 48px rgba(109, 40, 217, 0.2);
+  width: 100%;
+}
+
+.page-services .rdv-texte {
+  width: 100%;
+  min-width: 0;
+}
+
+.page-services .rdv-titre {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  color: #2b0053;
+  margin: 0 0 0.75rem;
+  line-height: 1.25;
+  width: 100%;
+}
+
+.page-services .rdv-desc {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #5a3289;
+  margin: 0 0 1.25rem;
+}
+
+.page-services .rdv-lien {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.75rem;
+  background: #21359a;
+  color: #fff !important;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 12px 28px rgba(33, 53, 154, 0.35);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.page-services .rdv-lien:hover {
+  transform: translateY(-2px);
+  color: #fff !important;
+}
+
+@media (max-width: 991px) {
+  .page-services .papiers-cartes {
+    grid-template-columns: 1fr;
+  }
+
+  .page-services .fiche-bleu {
+    transform: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-services .formation {
+    grid-template-columns: 1fr;
+  }
+
+  .page-services .rdv-fond {
+    text-align: center;
+  }
+}

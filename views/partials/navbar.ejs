@@ -20,9 +20,21 @@
 
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto mr-md-3">
-        <li class="nav-item"><a href="/" class="nav-link">Accueil</a></li>
-        <li class="nav-item">
-          <a href="/alphabetisation" class="nav-link">Alphabétisation</a>
+        <li
+          class="nav-item <%= typeof currentPath !== 'undefined' && currentPath === '/' ? 'active' : '' %>">
+          <a
+            href="/"
+            class="nav-link <%= typeof currentPath !== 'undefined' && currentPath === '/' ? 'active' : '' %>"
+            >Accueil</a
+          >
+        </li>
+        <li
+          class="nav-item <%= typeof currentPath !== 'undefined' && currentPath === '/alphabetisation' ? 'active' : '' %>">
+          <a
+            href="/alphabetisation"
+            class="nav-link <%= typeof currentPath !== 'undefined' && currentPath === '/alphabetisation' ? 'active' : '' %>"
+            >Alphabétisation</a
+          >
         </li>
         <li class="nav-item">
           <a href="/dictee-du-mois" class="nav-link">Dictée du mois</a>
@@ -30,16 +42,13 @@
         <li class="nav-item">
           <a href="/evenements" class="nav-link">Événements</a>
         </li>
-        
-        
+
         <li class="nav-item">
           <a href="/services" class="nav-link">Services offerts</a>
         </li>
         <li class="nav-item">
           <a href="/qui-sommes-nous" class="nav-link">Notre histoire</a>
         </li>
-        
-        
       </ul>
     </div>
   </div>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Centre Alpha – Services offerts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/animate.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/services.css" />
+  </head>
+
+  <body class="hero-section page-services">
+    <%- include('partials/navbar') %>
+
+    <main class="accueil-container services-page">
+      <section class="intro fade-in" aria-label="Services offerts">
+        <h1 class="intro-titre">Nos services</h1>
+        <p class="intro-texte">
+          Au Centre Alpha Granby, nous croyons que l'accès à l'information et à
+          l'éducation est un droit fondamental. Nous nous engageons chaque jour
+          auprès de la communauté de Granby pour offrir un soutien humain,
+          gratuit et confidentiel.
+        </p>
+        
+      </section>
+      <header class="papiers-entete">
+        <h2 id="titre-papiers" class="papiers-titre">
+Formation et tutorat        </h2>
+       
+      </header>
+      <section
+        class="accueil-hero alpha-entete fade-in"
+        aria-label="Alphabétisation">
+        
+        <div class="formation-texte">
+         
+            <p class="paragraphe">
+              
+            </p>
+            <ul class="points">
+              <li class="point">
+                <span class="point-icone" aria-hidden="true">✦</span>
+                <div class="point-contenu">
+                  <h3 class="point-titre">Gratuit</h3>
+                  <p class="paragraphe">
+                    Tous nos services de formation sont offerts sans aucun frais
+                    pour les participants.
+                  </p>
+                </div>
+              </li>
+              <li class="point">
+                <span class="point-icone" aria-hidden="true">✦</span>
+                <div class="point-contenu">
+                  <h3 class="point-titre">Adapté aux besoins</h3>
+                  <p class="paragraphe">
+                    Un plan d'apprentissage sur mesure qui respecte votre niveau
+                    et vos objectifs personnels.
+                  </p>
+                </div>
+              </li>
+              <li class="point">
+                <span class="point-icone" aria-hidden="true">✦</span>
+                <div class="point-contenu">
+                  <h3 class="point-titre">Disponible 5 jours par semaine</h3>
+                  <p class="paragraphe">
+                    Sessions flexibles offertes le matin et l'après-midi du lundi
+                    au vendredi.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="accueil-hero__visual alpha-visuel">
+          <div class="alpha-photo-wrap">
+            <img
+              src="/images/tutorat.jpg"
+              alt="Livres ouverts et apprentissage"
+              class="accueil-hero__img alpha-photo"
+              width="640"
+              height="480" />
+          </div>
+         
+        </div>
+     
+       
+      </section>
+
+      <section class="papiers" aria-labelledby="titre-papiers">
+        <header class="papiers-entete">
+          <h2 id="titre-papiers" class="papiers-titre">
+            Aide aux formulaires et démarches
+          </h2>
+          <p class="paragraphe papiers-intro">
+            Ce service gratuit s’adresse à toute la population de Granby et des
+            environs. Il consiste en plusieurs éléments.
+          </p>
+        </header>
+        <div class="papiers-cartes">
+          <article class="fiche">
+            <h3 class="fiche-titre">Appels téléphoniques</h3>
+            <ul class="liste">
+              <li>Gouvernement (RAMQ, Hydro, Fédéral)</li>
+              <li>Santé (CLSC, Imagix)</li>
+              <li>Logement (OMH)</li>
+            </ul>
+          </article>
+          <article class="fiche fiche-bleu">
+            <h3 class="fiche-titre">Remplissage de formulaires</h3>
+            <ul class="liste liste-ok">
+              <li>Certificats de naissance</li>
+              <li>Demandes HLM &amp; coop d'habitation</li>
+              <li>Allocation au logement</li>
+            </ul>
+          </article>
+          <article class="fiche">
+            <h3 class="fiche-titre">Autres services</h3>
+            <ul class="liste liste-simple">
+              <li>Rédaction de lettres (plaintes, aide sociale)</li>
+              <li>CV et recherche d'emploi</li>
+              <li>Changement d'adresse en ligne</li>
+              <li>Service de télécopie et photocopie</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="rdv" aria-label="Prendre rendez-vous">
+        <div class="rdv-fond">
+          <div class="rdv-texte">
+            <h2 class="rdv-titre">Besoin d'un coup de main ?</h2>
+            <p class="rdv-desc">
+              Nos services sont disponibles pour vous accueillir sans jugement
+              et dans le respect de votre vie privée.
+            </p>
+            <a href="/contact" class="rdv-lien">Prendre rendez-vous</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include('partials/footer') %>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

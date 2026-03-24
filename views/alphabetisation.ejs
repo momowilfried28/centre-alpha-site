@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Centre Alpha – Alphabétisation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/animate.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/alphabetisation.css" />
+  </head>
+
+  <body class="hero-section page-alphabet">
+    <%- include('partials/navbar') %>
+
+    <main class="accueil-container alpha-page">
+      <section
+        class="accueil-hero alpha-entete fade-in"
+        aria-label="Alphabétisation">
+        <div class="accueil-hero__intro">
+          <h1 class="accueil-titre alpha-titre">L'Alphabétisation</h1>
+          <p class="accueil-slogan">
+            Bien plus qu'apprendre à lire et à écrire, l'alphabétisation est une
+            clé d'émancipation. C'est le fondement d'une participation active à
+            la vie citoyenne et un rempart contre l'exclusion sociale.
+          </p>
+          <div class="accueil-hero__actions">
+            <a class="accueil-btn bouton-ateliers" href="/services">
+              Découvrir nos ateliers
+            </a>
+          </div>
+        </div>
+        <div class="accueil-hero__visual alpha-visuel">
+          <div class="alpha-photo-wrap">
+            <img
+              src="/images/Words%20that%20Matter.jpg"
+              alt="Livres ouverts et apprentissage"
+              class="accueil-hero__img alpha-photo"
+              width="640"
+              height="480" />
+          </div>
+          <blockquote class="alpha-citation">
+            <p>
+              « Le savoir est le seul trésor qui s'accroît quand on le partage.
+              »
+            </p>
+          </blockquote>
+        </div>
+      </section>
+
+      <section
+        id="causes"
+        class="causes fade-in delay-2"
+        aria-labelledby="titre-causes">
+        <h2 id="titre-causes" class="causes-titre">Les causes</h2>
+        <p class="causes-intro">
+          Les causes sont aussi nombreuses que le nombre de personnes inscrites
+          en alphabétisation.
+        </p>
+        <div class="causes-grille">
+          <article class="carte-cause foncee">
+            <div class="carte-icone" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="28"
+                height="28">
+                <rect x="3" y="8" width="18" height="12" rx="2" />
+                <path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" />
+                <path d="M12 12v4" />
+                <path d="M10 14h4" />
+              </svg>
+            </div>
+            <h3 class="carte-titre">Santé &amp; physique</h3>
+            <p class="carte-texte">
+              Des handicaps, une maladie chronique ou des troubles comme
+              l'épilepsie peuvent compliquer la scolarisation et la
+              concentration.
+            </p>
+          </article>
+          <article class="carte-cause foncee">
+            <div class="carte-icone" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="28"
+                height="28">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+              </svg>
+            </div>
+            <h3 class="carte-titre">Système scolaire régulier</h3>
+            <p class="carte-texte">
+              L'échec scolaire précoce et le décrochage limitent l'exposition à
+              la lecture et à l'écriture au moment où les bases se construisent
+            </p>
+          </article>
+          <article class="carte-cause foncee">
+            <div class="carte-icone" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="28"
+                height="28">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M12 2v2" />
+                <path d="M12 20v2" />
+                <path d="M4.93 4.93l1.41 1.41" />
+                <path d="M17.66 17.66l1.41 1.41" />
+                <path d="M2 12h2" />
+                <path d="M20 12h2" />
+                <path d="M6.34 17.66l-1.41 1.41" />
+                <path d="M19.07 4.93l-1.41 1.41" />
+              </svg>
+            </div>
+            <h3 class="carte-titre">Conditions de vie</h3>
+            <p class="carte-texte">
+              Précarité, très tôt sur le marché du travail, mobilité ou charge de
+              travail réduisent le temps et les ressources nécessaires pour
+              poursuivre une formation de base.
+            </p>
+          </article>
+          <article class="carte-cause foncee">
+            <div class="carte-icone" aria-hidden="true">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.75"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="28"
+                height="28">
+                <rect x="3" y="8" width="18" height="12" rx="2" />
+                <path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" />
+                <path d="M12 12v4" />
+                <path d="M10 14h4" />
+              </svg>
+            </div>
+            <h3 class="carte-titre">Isolement social</h3>
+            <p class="carte-texte">
+              L'éloignement des réseaux d'apprentissage ou la langue dominante
+              différente de celle du milieu peut freiner la maîtrise de la
+              lecture et de l'écriture.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section
+        id="consequences"
+        class="effets fade-in delay-2"
+        aria-labelledby="titre-effets">
+        <h2 id="titre-effets" class="causes-titre">Les conséquences</h2>
+        <p class="causes-intro">
+          Un faible niveau d'alphabétisation se traduit par des difficultés dans
+          la vie quotidienne, sur le marché du travail et pour la santé.
+        </p>
+
+        <div class="effets-grille">
+          <article class="panneau">
+            <h3 class="panneau-titre">Vie personnelle et sociale</h3>
+            <ul class="liste-effets">
+              <li>Difficulté à défendre ses intérêts</li>
+              <li>Isolement, gêne</li>
+              <li>Faible implication auprès d'associations</li>
+              <li>Absence aux réunions de l'école</li>
+              <li>Situations de chômage, de pauvreté</li>
+              <li>Utilisation massive des soins de santé, etc.</li>
+            </ul>
+          </article>
+
+          <article class="panneau">
+            <h3 class="panneau-titre">Pour l'employé</h3>
+            <ul class="liste-effets">
+              <li>Danger de blessures au travail</li>
+              <li>Peu d'accessibilité à des postes supérieurs</li>
+              <li>Difficulté de communication</li>
+            </ul>
+          </article>
+
+          <article class="panneau panneau-large">
+            <h3 class="panneau-titre blanc">Pour l'employeur</h3>
+            <p class="accroche">
+              Un faible niveau d'alphabétisation coûte cher aux entreprises
+              québécoises.
+            </p>
+            <p class="effets-label">Exemples&nbsp;:</p>
+            <ul class="liste-effets">
+              <li>
+                Un mauvais fonctionnement des appareils dû à l'incompréhension
+                des modes d'opération
+              </li>
+              <li>Mauvaise utilisation de la machinerie</li>
+              <li>Mauvaise utilisation de produits de nettoyage</li>
+              <li>Incapacité à lire les manuels d'instructions</li>
+              <li>
+                Accroissement du temps accordé à la supervision des employés
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <%- include('partials/footer') %>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>

@@ -138,7 +138,7 @@ html {
   font-family: "Inter", "Segoe UI", system-ui, sans-serif;
   font-weight: 700;
   font-size: clamp(1.35rem, 2.5vw, 1.65rem);
-  color: #6d28d9;
+  color: #1d4ed8;
   margin: 0 0 1.25rem;
   letter-spacing: -0.02em;
 }
@@ -241,7 +241,7 @@ html {
   font-size: 2.95rem;
   font-weight: 800;
   margin-bottom: 15px;
-  color: #6d28d9;
+  color: #1d4ed8;
   letter-spacing: 0.02em;
 }
 
@@ -535,7 +535,6 @@ html {
   }
 }
 
-/* Étiquette visible au chargement */
 .etiquette-wrap {
   position: fixed;
   top: 20px;
@@ -555,4 +554,13 @@ html {
   to {
     opacity: 1;
   }
+}
+
+#ftco-navbar .navbar-nav .nav-item.active .nav-link,
+#ftco-navbar .navbar-nav .nav-link.active {
+  color: #1d4ed8 !important;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
 }
