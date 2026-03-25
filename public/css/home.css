@@ -263,7 +263,7 @@ html {
   font-weight: 600;
   font-style: normal;
   font-variation-settings: "wdth" 100;
-  font-size: 1.1rem;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
   line-height: 1.45;
   letter-spacing: -0.02em;
   color: #334155;
