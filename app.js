@@ -18,6 +18,13 @@ app.get("/services", (req, res) => {
   res.render("services", { currentPath: "/services" });
 });
 
-app.listen(3000, () => {
-  console.log("Serveur lancé sur http://localhost:3000");
+function renderNotreHistoire(req, res) {
+  res.render("notrehistoire", { currentPath: req.path });
+}
+
+app.get("/qui-sommes-nous", renderNotreHistoire);
+app.get("/notrehistoire", renderNotreHistoire);
+
+app.listen(8080, () => {
+  console.log("Serveur lancé sur http://localhost:8080");
 });

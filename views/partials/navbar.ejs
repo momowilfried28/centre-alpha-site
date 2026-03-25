@@ -46,8 +46,13 @@
         <li class="nav-item">
           <a href="/services" class="nav-link">Services offerts</a>
         </li>
-        <li class="nav-item">
-          <a href="/qui-sommes-nous" class="nav-link">Notre histoire</a>
+        <li
+          class="nav-item <%= typeof currentPath !== 'undefined' && (currentPath === '/qui-sommes-nous' || currentPath === '/notrehistoire') ? 'active' : '' %>">
+          <a
+            href="/qui-sommes-nous"
+            class="nav-link <%= typeof currentPath !== 'undefined' && (currentPath === '/qui-sommes-nous' || currentPath === '/notrehistoire') ? 'active' : '' %>"
+            >Notre histoire</a
+          >
         </li>
       </ul>
     </div>

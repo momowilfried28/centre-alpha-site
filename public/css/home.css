@@ -3,7 +3,19 @@ html {
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
-
+.slogan-notreHistoire {
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: oblique;
+  font-variation-settings: "wdth" 100;
+  font-size: 1.5rem;
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: #334155;
+  margin: 0 0 0.25rem;
+  max-width: 36rem;
+}
 .hero-section {
   min-height: 100vh;
   min-height: 100dvh;
