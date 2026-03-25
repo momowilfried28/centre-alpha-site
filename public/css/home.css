@@ -147,12 +147,14 @@ html {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  font-family: "Inter", "Segoe UI", system-ui, sans-serif;
-  font-weight: 700;
-  font-size: clamp(1.35rem, 2.5vw, 1.65rem);
-  color: #1d4ed8;
-  margin: 0 0 1.25rem;
+  font-weight: 900;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  text-transform: none;
   letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: #1d3a9d;
+  margin: 0 0 1.25rem;
+  text-align: center;
 }
 
 .accueil-mission__bar {
@@ -284,12 +286,8 @@ html {
 }
 
 .accueil-texte {
-  font-family:
-    "Inter",
-    "Segoe UI",
-    system-ui,
-    -apple-system,
-    sans-serif;
+  font-family: "Archivo", sans-serif;
+
   font-size: 1.125rem;
   font-weight: 500;
   line-height: 1.75;
