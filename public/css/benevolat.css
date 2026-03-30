@@ -1,9 +1,28 @@
-.page-histoire .benevolat-causes {
+.benevolat-causes {
   text-align: center;
   padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2.5rem, 5vw, 4rem);
 }
-
-.page-histoire .benevolat-causes-titre {
+.benevolat-titre {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 4.5vw, 2.85rem);
+  color: #1d3a9d;
+  letter-spacing: -0.03em;
+}
+.slogan-benevolat {
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  color: #334155;
+  margin: 0 0 0.25rem;
+  max-width: 36rem;
+}
+.benevolat-causes-titre {
   font-family: "Archivo", system-ui, sans-serif;
   font-optical-sizing: auto;
   font-variation-settings: "wdth" 100;
@@ -16,8 +35,7 @@
   margin: 0 0 1.25rem;
   text-align: center;
 }
-
-.page-histoire .benevolat-causes-titre.benevolat-causes-titre-carte {
+.benevolat-causes-titre.benevolat-causes-titre-carte {
   display: inline-block;
   padding: 1.1rem 1.35rem;
   border-radius: 1.25rem;
@@ -27,11 +45,11 @@
   margin: 0 auto 1.5rem;
 }
 
-.page-histoire .benevolat-causes-titre.benevolat-causes-titre-carte::after {
+.benevolat-causes-titre.benevolat-causes-titre-carte::after {
   content: none;
 }
 
-.page-histoire .benevolat-causes-titre::after {
+.benevolat-causes-titre::after {
   content: "";
   display: block;
   width: 48px;
@@ -41,7 +59,7 @@
   background: linear-gradient(90deg, #7c3aed, #9333ea);
 }
 
-.page-histoire .benevolat-causes-intro {
+.benevolat-causes-intro {
   max-width: 40rem;
   margin: 0 auto 2rem;
   font-family: "Inter", system-ui, sans-serif;
@@ -49,8 +67,7 @@
   line-height: 1.65;
   color: #475569;
 }
-
-.page-histoire .benevolat-causes-grille {
+.benevolat-causes-grille {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: clamp(1rem, 2.5vw, 1.5rem);
@@ -63,7 +80,7 @@
   }
 }
 
-.page-histoire .benevolat-cause {
+.benevolat-cause {
   border-radius: 1.25rem;
   padding: 1.35rem 1.35rem 1.35rem;
   overflow: hidden;
@@ -75,11 +92,11 @@
     box-shadow 0.15s ease;
 }
 
-.page-histoire .benevolat-cause:hover {
+.benevolat-cause:hover {
   transform: translateY(-2px);
 }
 
-.page-histoire .benevolat-cause.benevolat-cause-foncee {
+.benevolat-cause.benevolat-cause-foncee {
   background: transparent;
   color: #475569;
   border: 1px solid rgba(15, 23, 42, 0.12);
@@ -90,41 +107,39 @@
   align-items: center;
 }
 
-.page-histoire .benevolat-cause.benevolat-cause-foncee .benevolat-cause-texte {
+.benevolat-cause.benevolat-cause-foncee .benevolat-cause-texte {
   color: #475569;
 }
 
-/* Section « impact » — uniquement les 2 cartes (Temps requis, Matériel) */
-.page-histoire #benevolat-impact .benevolat-cause.benevolat-cause-foncee {
+#benevolat-impact .benevolat-cause.benevolat-cause-foncee {
   background: linear-gradient(155deg, #312e81 0%, #1e1b4b 100%);
   color: #fff;
   border-color: transparent;
   box-shadow: 0 18px 40px rgba(30, 27, 75, 0.35);
 }
 
-.page-histoire
-  #benevolat-impact
+#benevolat-impact
   .benevolat-cause.benevolat-cause-foncee
   .benevolat-cause-titre {
   color: #fff;
 }
 
-.page-histoire
-  #benevolat-impact
+#benevolat-impact
   .benevolat-cause.benevolat-cause-foncee
   .benevolat-cause-texte {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.page-histoire #benevolat-impact .benevolat-cause.benevolat-cause-foncee .benevolat-cause-icone {
+#benevolat-impact
+  .benevolat-cause.benevolat-cause-foncee
+  .benevolat-cause-icone {
   background: rgba(255, 255, 255, 0.15);
 }
-
-.page-histoire #benevolat-impact .benevolat-cause-icone svg {
+#benevolat-impact .benevolat-cause-icone svg {
   filter: brightness(0) invert(1);
 }
 
-.page-histoire .benevolat-cause-icone {
+.benevolat-cause-icone {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -136,12 +151,12 @@
   color: #fff;
 }
 
-.page-histoire .benevolat-cause.benevolat-cause-foncee .benevolat-cause-icone {
+.benevolat-cause.benevolat-cause-foncee .benevolat-cause-icone {
   margin-left: auto;
   margin-right: auto;
 }
 
-.page-histoire .benevolat-cause-titre {
+.benevolat-cause-titre {
   font-family: "Inter", system-ui, sans-serif;
   font-weight: 700;
   font-size: 1.05rem;
@@ -149,7 +164,7 @@
   color: #180606;
 }
 
-.page-histoire .benevolat-cause-texte {
+.benevolat-cause-texte {
   margin: 0;
   font-family: "Inter", system-ui, sans-serif;
   font-size: 0.9rem;
