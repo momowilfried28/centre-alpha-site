@@ -1,0 +1,158 @@
+.page-histoire .benevolat-causes {
+  text-align: center;
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2.5rem, 5vw, 4rem);
+}
+
+.page-histoire .benevolat-causes-titre {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "wdth" 100;
+  font-weight: 900;
+  font-size: clamp(1.5rem, 2.8vw, 2rem);
+  text-transform: none;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: #1d3a9d;
+  margin: 0 0 1.25rem;
+  text-align: center;
+}
+
+.page-histoire .benevolat-causes-titre.benevolat-causes-titre-carte {
+  display: inline-block;
+  padding: 1.1rem 1.35rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, #1e40af 0%, #4f46e5 55%, #7c3aed 100%);
+  color: #fff;
+  box-shadow: 0 18px 44px rgba(30, 64, 175, 0.22);
+  margin: 0 auto 1.5rem;
+}
+
+.page-histoire .benevolat-causes-titre.benevolat-causes-titre-carte::after {
+  content: none;
+}
+
+.page-histoire .benevolat-causes-titre::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin: 0.65rem auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #7c3aed, #9333ea);
+}
+
+.page-histoire .benevolat-causes-intro {
+  max-width: 40rem;
+  margin: 0 auto 2rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #475569;
+}
+
+.page-histoire .benevolat-causes-grille {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  text-align: left;
+}
+
+@media (max-width: 991px) {
+  .page-histoire .benevolat-causes-grille {
+    grid-template-columns: 1fr;
+  }
+}
+
+.page-histoire .benevolat-cause {
+  border-radius: 1.25rem;
+  padding: 1.35rem 1.35rem 1.35rem;
+  overflow: hidden;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.page-histoire .benevolat-cause:hover {
+  transform: translateY(-2px);
+}
+
+.page-histoire .benevolat-cause.benevolat-cause-foncee {
+  background: transparent;
+  color: #475569;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow:
+    0 4px 6px rgba(15, 23, 42, 0.04),
+    0 16px 40px rgba(15, 23, 42, 0.07);
+  text-align: center;
+  align-items: center;
+}
+
+.page-histoire .benevolat-cause.benevolat-cause-foncee .benevolat-cause-texte {
+  color: #475569;
+}
+
+/* Section « impact » — uniquement les 2 cartes (Temps requis, Matériel) */
+.page-histoire #benevolat-impact .benevolat-cause.benevolat-cause-foncee {
+  background: linear-gradient(155deg, #312e81 0%, #1e1b4b 100%);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 18px 40px rgba(30, 27, 75, 0.35);
+}
+
+.page-histoire
+  #benevolat-impact
+  .benevolat-cause.benevolat-cause-foncee
+  .benevolat-cause-titre {
+  color: #fff;
+}
+
+.page-histoire
+  #benevolat-impact
+  .benevolat-cause.benevolat-cause-foncee
+  .benevolat-cause-texte {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.page-histoire #benevolat-impact .benevolat-cause.benevolat-cause-foncee .benevolat-cause-icone {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.page-histoire #benevolat-impact .benevolat-cause-icone svg {
+  filter: brightness(0) invert(1);
+}
+
+.page-histoire .benevolat-cause-icone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  background: rgba(0, 0, 0, 0.22);
+  color: #fff;
+}
+
+.page-histoire .benevolat-cause.benevolat-cause-foncee .benevolat-cause-icone {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-histoire .benevolat-cause-titre {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin: 0 0 0.65rem;
+  color: #180606;
+}
+
+.page-histoire .benevolat-cause-texte {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  flex: 1;
+}
