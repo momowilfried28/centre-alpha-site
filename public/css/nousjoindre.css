@@ -112,21 +112,11 @@
   flex-shrink: 0;
 }
 
-.page-nous-joindre .nj-card-titre {
-  font-family: "Inter", system-ui, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: #64748b;
-  margin: 0;
-}
-
 .page-nous-joindre .nj-card-lien {
   font-family: "Archivo", system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: clamp(1.05rem, 2vw, 1.2rem);
-  line-height: 1.35;
+  line-height: 1.15;
   color: #1d3a9d;
   text-decoration: none;
   word-break: break-word;
@@ -137,15 +127,6 @@
   color: #4f46e5;
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-
-.page-nous-joindre .nj-card-desc {
-  margin: 0;
-  font-family: "Inter", system-ui, sans-serif;
-  font-size: 0.88rem;
-  line-height: 1.55;
-  color: #64748b;
-  max-width: 22rem;
 }
 
 .page-nous-joindre .nj-carte-bandeau {
