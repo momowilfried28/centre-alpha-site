@@ -17,6 +17,9 @@ app.get("/alphabetisation", (req, res) => {
 app.get("/services", (req, res) => {
   res.render("services", { currentPath: "/services" });
 });
+app.get("/benevolat", (req, res) => {
+  res.render("benevolat", { currentPath: "/benevolat" });
+});
 
 function renderNotreHistoire(req, res) {
   res.render("notrehistoire", { currentPath: req.path });
