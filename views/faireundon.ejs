@@ -1,7 +1,58 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Centre Alpha – Accueil</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Centre Alpha – Services offerts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/animate.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/faireundon.css" />
+  </head>
+
+  <body class="hero-section page-faireundon">
+    <%- include('partials/navbar') %>
+
+    <main class="accueil-container">
+      <section class="accueil-hero fade-in" aria-label="Faire un don">
+        <div class="accueil-hero__visual">
+          <div>
+            <img
+              src="/images/don.jpg"
+              alt="Livres ouverts et apprentissage"
+              class="accueil-hero__img"
+              width="640"
+              height="480" />
+          </div>
+        </div>
+        <div class="accueil-hero__intro">
+          <h1 class="intro-titre">Faire un don</h1>
+          <p class="accueil-slogan">
+            Si vous désirez faire un don au Centre Alpha, vous pouvez le faire.
+            Nous acceptons toutes les donations en argent ou par chèque. Sur
+            demande, nous pouvons également vous remettre un reçu de charité
+            pour fins d’impôt. En vous remerciant d’avance pour votre
+            générosité.
+          </p>
+          <a href="/" class="btn btn-primary">Plus d'informations</a>
+        </div>
+      </section>
+    </main>
+    <%- include('partials/footer') %>
+  </body>
+</html>

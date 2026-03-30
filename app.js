@@ -21,6 +21,10 @@ app.get("/benevolat", (req, res) => {
   res.render("benevolat", { currentPath: "/benevolat" });
 });
 
+app.get("/faireundon", (req, res) => {
+  res.render("faireundon", { currentPath: "/faireundon" });
+});
+
 function renderNotreHistoire(req, res) {
   res.render("notrehistoire", { currentPath: req.path });
 }

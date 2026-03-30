@@ -1,0 +1,57 @@
+.page-faireundon .intro-titre {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 4.5vw, 2.85rem);
+  color: #1d3a9d;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+}
+
+.page-faireundon .accueil-hero .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.35rem;
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-variation-settings: "wdth" 100;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  text-decoration: none;
+  background: #172554;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(23, 37, 84, 0.28);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.page-faireundon .accueil-hero .btn-primary:hover {
+  color: #fff;
+  transform: translateY(-1px);
+  opacity: 0.94;
+}
+
+.page-faireundon .accueil-hero__visual {
+  padding-bottom: 2rem;
+}
+
+.page-faireundon .accueil-hero__visual > div {
+  position: relative;
+  transform: rotate(-2deg);
+  transform-origin: center right;
+}
+
+.page-faireundon .accueil-hero__img {
+  max-height: min(440px, 54vh);
+}
+
+@media (max-width: 700px) {
+  .page-faireundon .accueil-hero__visual > div {
+    transform: none;
+  }
+}
