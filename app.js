@@ -24,6 +24,9 @@ app.get("/benevolat", (req, res) => {
 app.get("/faireundon", (req, res) => {
   res.render("faireundon", { currentPath: "/faireundon" });
 });
+app.get("/Nous_Joindre", (req, res) => {
+  res.render("Nous_Joindre", { currentPath: "/Nous_Joindre" });
+});
 
 function renderNotreHistoire(req, res) {
   res.render("notrehistoire", { currentPath: req.path });
