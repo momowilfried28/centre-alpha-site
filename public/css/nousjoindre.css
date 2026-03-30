@@ -1,0 +1,215 @@
+.page-nous-joindre .intro {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(237, 233, 254, 0.35) 45%,
+    rgba(238, 245, 243, 0.5) 100%
+  );
+  border: 1px solid rgba(109, 40, 217, 0.1);
+  box-shadow:
+    0 4px 6px rgba(15, 23, 42, 0.04),
+    0 20px 48px rgba(33, 53, 154, 0.08);
+  padding: clamp(1.75rem, 4vw, 2.5rem) clamp(1.5rem, 3vw, 2.25rem);
+  overflow: hidden;
+}
+
+.page-nous-joindre .intro::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: 4px 0 0 4px;
+  background: linear-gradient(180deg, #1d3a9d, #7c3aed, #4f46e5);
+}
+
+.page-nous-joindre .intro-titre {
+  background: linear-gradient(115deg, #1d3a9d 0%, #4338ca 50%, #6d28d9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page-nous-joindre .intro-texte {
+  max-width: 42rem;
+}
+
+.page-nous-joindre .nj-contact {
+  margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.page-nous-joindre .nj-section-titre {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+  color: #1d3a9d;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.25rem;
+  text-align: center;
+}
+
+.page-nous-joindre .nj-section-titre::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 3px;
+  margin: 0.65rem auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #7c3aed, #9333ea);
+}
+
+.page-nous-joindre .nj-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.35rem);
+  align-items: stretch;
+}
+
+.page-nous-joindre .nj-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.65rem;
+  padding: clamp(1.5rem, 3vw, 1.85rem) 1.25rem;
+  background: #fff;
+  border-radius: 1.35rem;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow:
+    0 4px 6px rgba(15, 23, 42, 0.04),
+    0 16px 40px rgba(15, 23, 42, 0.07);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  min-height: 100%;
+}
+
+.page-nous-joindre .nj-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 24px rgba(15, 23, 42, 0.08),
+    0 24px 48px rgba(33, 53, 154, 0.12);
+}
+
+.page-nous-joindre .nj-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.35rem;
+  height: 3.35rem;
+  border-radius: 1rem;
+  background: linear-gradient(145deg, #1e40af 0%, #4f46e5 55%, #7c3aed 100%);
+  color: #fff;
+  margin-bottom: 0.15rem;
+  box-shadow: 0 10px 28px rgba(30, 64, 175, 0.28);
+}
+
+.page-nous-joindre .nj-card-icon svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  flex-shrink: 0;
+}
+
+.page-nous-joindre .nj-card-titre {
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  margin: 0;
+}
+
+.page-nous-joindre .nj-card-lien {
+  font-family: "Archivo", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  line-height: 1.35;
+  color: #1d3a9d;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.page-nous-joindre .nj-card-lien:hover,
+.page-nous-joindre .nj-card-lien:focus-visible {
+  color: #4f46e5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.page-nous-joindre .nj-card-desc {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #64748b;
+  max-width: 22rem;
+}
+
+.page-nous-joindre .nj-carte-bandeau {
+  margin-top: clamp(0.5rem, 2vw, 1rem);
+  padding: clamp(1.75rem, 4vw, 2.5rem) clamp(1.5rem, 3vw, 2rem);
+  border-radius: 1.75rem;
+  background: linear-gradient(145deg, #1e1b4b 0%, #312e81 40%, #4338ca 100%);
+  box-shadow: 0 20px 50px rgba(49, 46, 129, 0.35);
+  text-align: center;
+}
+
+.page-nous-joindre .nj-carte-titre {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  color: #fff;
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.page-nous-joindre .nj-carte-texte {
+  margin: 0 auto 1.25rem;
+  max-width: 32rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.page-nous-joindre .nj-carte-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.65rem;
+  background: #fff;
+  color: #312e81 !important;
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.page-nous-joindre .nj-carte-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  color: #1e1b4b !important;
+}
+
+@media (max-width: 900px) {
+  .page-nous-joindre .nj-grid {
+    grid-template-columns: 1fr;
+    max-width: 28rem;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-nous-joindre .intro {
+    padding-left: clamp(1.25rem, 4vw, 1.75rem);
+  }
+}
