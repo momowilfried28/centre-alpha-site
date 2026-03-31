@@ -149,11 +149,12 @@
 .page-temoignages .tem-quote {
   margin: 0;
   font-family: "Inter", system-ui, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   line-height: 1.75;
   color: #000408;
   white-space: pre-line;
   font-style: italic;
+  font-weight: 500;
 }
 
 .page-temoignages .tem-visual {
