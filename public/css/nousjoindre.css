@@ -18,10 +18,6 @@
   color: transparent;
 }
 
-.page-nous-joindre .intro-texte {
-  max-width: 42rem;
-}
-
 .page-nous-joindre .nj-contact {
   margin-bottom: clamp(2rem, 5vw, 3rem);
 }
