@@ -5,10 +5,11 @@
 .benevolat-titre {
   font-family: "Archivo", system-ui, sans-serif;
   font-weight: 900;
-  font-size: clamp(2rem, 4.5vw, 2.85rem);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
   color: #1d3a9d;
   letter-spacing: -0.03em;
 }
+
 .slogan-benevolat {
   font-family: "Archivo", sans-serif;
   font-optical-sizing: auto;

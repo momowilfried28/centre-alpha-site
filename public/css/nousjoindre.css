@@ -1,28 +1,14 @@
 .page-nous-joindre .intro {
   position: relative;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.92) 0%,
-    rgba(237, 233, 254, 0.35) 45%,
-    rgba(238, 245, 243, 0.5) 100%
-  );
-  border: 1px solid rgba(109, 40, 217, 0.1);
-  box-shadow:
-    0 4px 6px rgba(15, 23, 42, 0.04),
-    0 20px 48px rgba(33, 53, 154, 0.08);
+  background: transparent;
+  border: none;
+  box-shadow: none;
   padding: clamp(1.75rem, 4vw, 2.5rem) clamp(1.5rem, 3vw, 2.25rem);
   overflow: hidden;
 }
 
 .page-nous-joindre .intro::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  border-radius: 4px 0 0 4px;
-  background: linear-gradient(180deg, #1d3a9d, #7c3aed, #4f46e5);
+  content: none;
 }
 
 .page-nous-joindre .intro-titre {
