@@ -9,7 +9,6 @@ app.use(express.static("public"));
 
 const dataFilePath = path.join(__dirname, "public", "data", "dictee.json");
 
-/** Même règles que l’aperçu admin (texte brut → léger formatage). */
 function renderMarkdown(raw) {
   if (typeof raw !== "string" || raw === "") return "";
   let out = raw
