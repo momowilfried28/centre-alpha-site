@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dictée</title>
+    <style>
+      .dictee-shell {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 16px 32px;
+      }
+      .dictee-content {
+        margin: 24px auto 0;
+        padding: clamp(1.25rem, 3vw, 1.75rem);
+        border-radius: 14px;
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+        background: #fff;
+      }
+      .dictee-text {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        font-family: "Inter", system-ui, sans-serif;
+        font-size: 1.02rem;
+        line-height: 1.75;
+        color: #334155;
+        margin: 0;
+      }
+      .dictee-text a {
+        color: #2563eb;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Satisfy&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/animate.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/alphabetisation.css" />
+  </head>
+
+  <body class="hero-section page-alphabet">
+    <%- include("partials/navbar") %>
+
+    <main class="accueil-container alpha-page">
+      <section
+        class="accueil-hero alpha-entete fade-in"
+        aria-label="Dictée du mois">
+        <div class="accueil-hero__intro">
+          <h1 class="accueil-titre alpha-titre">Dictée du mois</h1>
+          <p class="accueil-slogan">
+            Améliorez vos compétences en lecture et en écriture tout en
+            découvrant des thématiques inspirantes pour votre bien-être.
+          </p>
+        </div>
+
+        <div class="accueil-hero__visual alpha-visuel">
+          <div class="alpha-photo-wrap">
+            <img
+              src="/images/Words%20that%20Matter.jpg"
+              alt="Livres ouverts et apprentissage"
+              class="accueil-hero__img alpha-photo"
+              width="640"
+              height="480" />
+          </div>
+          <blockquote class="alpha-citation">
+            <p>« Chaque mois, un nouveau défi pour stimuler votre esprit.»</p>
+          </blockquote>
+        </div>
+      </section>
+
+      <section class="dictee-shell">
+        <div class="dictee-content">
+          <div class="dictee-text"><%- typeof rendered !== "undefined" && rendered != null ? rendered : "" %></div>
+        </div>
+      </section>
+    </main>
+
+    <%- include("partials/footer") %>
+  </body>
+</html>
