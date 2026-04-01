@@ -1,14 +1,30 @@
 const express = require("express");
 const app = express();
 const path = require("path");
+const fs = require("fs");
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-//route pour le fichier json
-const fs = require("fs");
 const dataFilePath = path.join(__dirname, "public", "data", "dictee.json");
+
+/** Même règles que l’aperçu admin (texte brut → léger formatage). */
+function renderMarkdown(raw) {
+  if (typeof raw !== "string" || raw === "") return "";
+  let out = raw
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+  out = out.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+  out = out.replace(/__(.+?)__/g, "<u>$1</u>");
+  out = out.replace(
+    /(https?:\/\/[^\s<]+)/g,
+    '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+  );
+  return out;
+}
+
 function readData() {
   try {
     const raw = fs.readFileSync(dataFilePath, "utf-8");
@@ -54,16 +70,24 @@ function requireAdmin(req, res, next) {
   next();
 }
 
-//route pour la dictee
 app.get("/dictee", (req, res) => {
   const text = readData();
-  res.render("dictee", { currentPath: "/dictee", text });
+  res.render("dictee", {
+    currentPath: "/dictee",
+    text,
+    rendered: renderMarkdown(text),
+  });
 });
-//route pour la gestion de la dictee par admin
+
 app.get("/admin/dictee", requireAdmin, (req, res) => {
   const text = readData();
-  res.render("admin-dictee", { currentPath: "/admin/dictee", text, saved: false });
+  res.render("admin-dictee", {
+    currentPath: "/admin/dictee",
+    text,
+    saved: false,
+  });
 });
+
 app.post("/admin/dictee", requireAdmin, (req, res) => {
   writeData(req.body.text || "");
   const text = readData();
