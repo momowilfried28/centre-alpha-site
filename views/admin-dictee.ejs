@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Dictée</title>
+    <style>
+      .container { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+      textarea { width: 100%; min-height: 520px; font-size: 16px; line-height: 1.4; padding: 12px; }
+      .row { display: flex; gap: 12px; align-items: center; margin: 12px 0; }
+      .ok { color: #0a7a0a; font-weight: 600; }
+      button { padding: 10px 14px; font-size: 16px; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Admin — Dictée</h1>
+
+      <% if (typeof saved !== "undefined" && saved) { %>
+        <div class="row"><div class="ok">Sauvegardé.</div></div>
+      <% } %>
+
+      <form method="POST" action="/admin/dictee">
+        <label for="text"><strong>Texte (colle tout ici)</strong></label>
+        <div class="row"></div>
+        <textarea id="text" name="text"><%= text || "" %></textarea>
+
+        <div class="row">
+          <button type="submit">Enregistrer</button>
+        </div>
+      </form>
+
+      <p>Page publique: <a href="/dictee">/dictee</a></p>
+    </div>
+  </body>
+</html>
