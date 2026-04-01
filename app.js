@@ -20,7 +20,7 @@ function renderMarkdown(raw) {
   out = out.replace(/__(.+?)__/g, "<u>$1</u>");
   out = out.replace(
     /(https?:\/\/[^\s<]+)/g,
-    '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+    '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>',
   );
   return out;
 }
@@ -119,8 +119,8 @@ app.get("/faireundon", (req, res) => {
 app.get("/Nous_Joindre", (req, res) => {
   res.render("Nous_Joindre", { currentPath: "/Nous_Joindre" });
 });
-app.get("/Temoignages", (req, res) => {
-  res.render("Temoignages", { currentPath: "/Temoignages" });
+app.get("/temoignages", (req, res) => {
+  res.render("temoignages", { currentPath: "/temoignages" });
 });
 
 function renderNotreHistoire(req, res) {
