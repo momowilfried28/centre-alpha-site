@@ -9,19 +9,17 @@ app.use(express.static("public"));
 
 const dataFilePath = path.join(__dirname, "public", "data", "dictee.json");
 
-function renderMarkdown(raw) {
+/** HTML TinyMCE tel quel ; sinon texte brut échappé (pas de **gras** / liens auto). */
+function renderDicteeForPublic(raw) {
   if (typeof raw !== "string" || raw === "") return "";
-  let out = raw
+  const trimmed = raw.trim();
+  if (/^<[a-z]/i.test(trimmed) || /<\/[a-z][a-z0-9]*>/i.test(raw)) {
+    return raw;
+  }
+  return raw
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;");
-  out = out.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-  out = out.replace(/__(.+?)__/g, "<u>$1</u>");
-  out = out.replace(
-    /(https?:\/\/[^\s<]+)/g,
-    '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>',
-  );
-  return out;
 }
 
 function readData() {
@@ -73,8 +71,7 @@ app.get("/dictee", (req, res) => {
   const text = readData();
   res.render("dictee", {
     currentPath: "/dictee",
-    text,
-    rendered: renderMarkdown(text),
+    rendered: renderDicteeForPublic(text),
   });
 });
 
@@ -88,8 +85,8 @@ app.get("/admin/dictee", requireAdmin, (req, res) => {
 });
 
 app.post("/admin/dictee", requireAdmin, (req, res) => {
-  writeData(req.body.text || "");
-  const text = readData();
+  const text = req.body.text || "";
+  writeData(text);
   res.render("admin-dictee", {
     currentPath: "/admin/dictee",
     text,

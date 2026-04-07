@@ -55,7 +55,6 @@
   color: #4338ca;
 }
 
-/* Causes */
 .page-alphabet .causes {
   text-align: center;
   padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2.5rem, 5vw, 4rem);
@@ -177,7 +176,6 @@
   color: #2563eb;
 }
 
-/* Conséquences */
 .page-alphabet .effets {
   text-align: center;
   padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2.5rem, 5vw, 4rem);
@@ -198,6 +196,7 @@
   box-shadow:
     0 4px 6px rgba(15, 23, 42, 0.04),
     0 16px 40px rgba(15, 23, 42, 0.07);
+    text-align: center;
 }
 
 .page-alphabet .panneau-large {
@@ -214,6 +213,7 @@
   font-size: 1.05rem;
   margin: 0 0 1rem;
   color: #1d4ed8;
+  text-align: center;
 }
 
 .page-alphabet .panneau-titre.blanc {

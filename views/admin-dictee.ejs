@@ -4,11 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin - Dictée</title>
+    <script
+      src="https://cdn.tiny.cloud/1/dav6oy71jvutuqzn0mi106qf9y6y1qhsfgg7wy2x7ugtxdzl/tinymce/8/tinymce.min.js"
+      referrerpolicy="origin"
+      crossorigin="anonymous"></script>
     <style>
-      * { box-sizing: border-box; }
-      body { font-family: system-ui, sans-serif; background: #f1f5f9; margin: 0; padding: 24px; }
-      .container { max-width: 960px; margin: 0 auto; }
-      h1 { font-size: 1.4rem; color: #1e293b; margin-bottom: 20px; }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        background: #f1f5f9;
+        margin: 0;
+        padding: 24px;
+      }
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      h1 {
+        font-size: 1.4rem;
+        color: #1e293b;
+        margin-bottom: 20px;
+      }
 
       .editor-grid {
         display: grid;
@@ -47,14 +65,15 @@
       .preview-body {
         min-height: 520px;
         padding: 14px;
-        white-space: pre-wrap;
         word-wrap: break-word;
         font-family: "Inter", system-ui, sans-serif;
         font-size: 0.95rem;
         line-height: 1.75;
         color: #334155;
       }
-      .preview-body a { color: #2563eb; }
+      .preview-body a {
+        color: #2563eb;
+      }
 
       .actions {
         display: flex;
@@ -72,8 +91,14 @@
         border-radius: 8px;
         cursor: pointer;
       }
-      button[type="submit"]:hover { background: #1d4ed8; }
-      .ok { color: #16a34a; font-weight: 600; font-size: 0.95rem; }
+      button[type="submit"]:hover {
+        background: #1d4ed8;
+      }
+      .ok {
+        color: #16a34a;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
       .legend {
         margin-top: 14px;
         font-size: 0.82rem;
@@ -86,7 +111,9 @@
         font-family: monospace;
         color: #475569;
       }
-      a { color: #2563eb; }
+      a {
+        color: #2563eb;
+      }
     </style>
   </head>
   <body>
@@ -94,72 +121,94 @@
       <h1>Admin — Dictée</h1>
 
       <% if (typeof saved !== "undefined" && saved) { %>
-        <div class="ok" style="margin-bottom:12px">✅ Sauvegardé avec succès.</div>
+        <div class="ok" style="margin-bottom: 12px">Sauvegardé avec succès.✅ </div>
       <% } %>
 
-      <form method="POST" action="/admin/dictee">
-        <div class="editor-grid">
-          <div class="panel">
-            <div class="panel-header">✏️ Éditeur</div>
-            <textarea
-              id="text"
-              name="text"
-              oninput="updatePreview()"
-              spellcheck="true"
-            ><%= typeof text !== "undefined" && text != null ? text : "" %></textarea>
-          </div>
-
-          <div class="panel">
-            <div class="panel-header">👁️ Aperçu (tel qu'affiché sur le site)</div>
-            <div class="preview-body" id="preview"></div>
-          </div>
-        </div>
+      <form id="dictee-form" method="POST" action="/admin/dictee">
+        <textarea id="text" name="text" spellcheck="true"><%= typeof text !== "undefined" && text != null ? text : "" %></textarea>
 
         <div class="actions">
           <button type="submit">Enregistrer</button>
-          <a href="/dictee" target="_blank">Voir la page publique →</a>
+          <a href="/dictee" target="_blank">Voir la dictée publique </a>
         </div>
       </form>
-
-      <p class="legend">
-        Formatage supporté :
-        <code>__texte__</code> = <u>souligné</u> &nbsp;|&nbsp;
-        <code>**texte**</code> = <strong>gras</strong> &nbsp;|&nbsp;
-        <code>https://...</code> = lien cliquable
-      </p>
     </div>
 
     <script>
-      function renderMarkdown(raw) {
-        if (!raw) return "";
-
-        // 1. Escape HTML
-        let out = raw
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;");
-
-        // 2. Gras : **texte**
-        out = out.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-
-        // 3. Souligné : __texte__
-        out = out.replace(/__(.+?)__/g, "<u>$1</u>");
-
-        // 4. Liens cliquables : http:// ou https://
-        out = out.replace(
-          /(https?:\/\/[^\s<]+)/g,
-          '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
-        );
-
-        return out;
-      }
-
-      function updatePreview() {
-        const raw = document.getElementById("text").value;
-        document.getElementById("preview").innerHTML = renderMarkdown(raw);
-      }
-
-      updatePreview();
+      tinymce.init({
+        selector: "#text",
+        plugins: [
+          // Core editing features
+          "anchor",
+          "autolink",
+          "charmap",
+          "codesample",
+          "emoticons",
+          "link",
+          "lists",
+          "media",
+          "searchreplace",
+          "table",
+          "visualblocks",
+          "wordcount",
+          // Your account includes a free trial of TinyMCE premium features
+          // Try the most popular premium features until Apr 21, 2026:
+          "checklist",
+          "mediaembed",
+          "casechange",
+          "formatpainter",
+          "pageembed",
+          "a11ychecker",
+          "tinymcespellchecker",
+          "permanentpen",
+          "powerpaste",
+          "advtable",
+          "advcode",
+          "advtemplate",
+          "tinymceai",
+          "uploadcare",
+          "mentions",
+          "tinycomments",
+          "tableofcontents",
+          "footnotes",
+          "mergetags",
+          "autocorrect",
+          "typography",
+          "inlinecss",
+          "markdown",
+          "importword",
+          "exportword",
+          "exportpdf",
+        ],
+        toolbar:
+          "undo redo | tinymceai-chat tinymceai-quickactions tinymceai-review | blocks fontfamily fontsize | bold italic underline strikethrough | link media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography uploadcare | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+        tinycomments_mode: "embedded",
+        tinycomments_author: "Author name",
+        mergetags_list: [
+          { value: "First.Name", title: "First Name" },
+          { value: "Email", title: "Email" },
+        ],
+        tinymceai_token_provider: async () => {
+          await fetch(
+            `https://demo.api.tiny.cloud/1/dav6oy71jvutuqzn0mi106qf9y6y1qhsfgg7wy2x7ugtxdzl/auth/random`,
+            { method: "POST", credentials: "include" },
+          );
+          return {
+            token: await fetch(
+              `https://demo.api.tiny.cloud/1/dav6oy71jvutuqzn0mi106qf9y6y1qhsfgg7wy2x7ugtxdzl/jwt/tinymceai`,
+              { credentials: "include" },
+            ).then((r) => r.text()),
+          };
+        },
+        uploadcare_public_key: "859ecb55c5445e29c7f7",
+      });
+    </script>
+    <script>
+      document.getElementById("dictee-form").addEventListener("submit", function () {
+        if (window.tinymce && tinymce.get("text")) {
+          tinymce.triggerSave();
+        }
+      });
     </script>
   </body>
 </html>

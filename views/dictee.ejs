@@ -18,18 +18,16 @@
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
         background: #fff;
       }
+      /* Styles appliqués au contenu généré par TinyMCE */
       .dictee-text {
-        white-space: pre-wrap;
-        word-wrap: break-word;
         font-family: "Inter", system-ui, sans-serif;
         font-size: 1.02rem;
         line-height: 1.75;
         color: #334155;
-        margin: 0;
       }
-      .dictee-text a {
-        color: #2563eb;
-      }
+      .dictee-text p { margin: 0 0 0.5em; }
+      .dictee-text a { color: #2563eb; }
+      .dictee-text ul, .dictee-text ol { padding-left: 1.5em; }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -82,7 +80,9 @@
 
       <section class="dictee-shell">
         <div class="dictee-content">
-          <div class="dictee-text"><%- typeof rendered !== "undefined" && rendered != null ? rendered : "" %></div>
+          <div class="dictee-text">
+            <%- typeof rendered !== "undefined" && rendered != null ? rendered : "" %>
+          </div>
         </div>
       </section>
     </main>
