@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: system-ui, sans-serif;
+  background: #f1f5f9;
+  margin: 0;
+  padding: 24px;
+}
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 1.9rem;
+  color: #006ce7;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dictee-block {
+  margin-bottom: 28px;
+}
+.dictee-block h2 {
+  font-size: 1.5rem;
+  color: #c00;
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+.panel {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+textarea {
+  width: 100%;
+  min-height: 280px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  padding: 14px;
+  border: none;
+  outline: none;
+  resize: vertical;
+  font-family: "Courier New", monospace;
+  color: #334155;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+}
+button[type="submit"] {
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button[type="submit"]:hover {
+  background: #1d4ed8;
+}
+.ok {
+  color: #16a34a;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+a {
+  color: #2563eb;
+}
