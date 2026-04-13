@@ -6,7 +6,7 @@
     <title>Dictée</title>
     <style>
       .dictee-shell {
-        max-width: 1000px;
+        max-width: auto;
         margin: 0 auto;
         padding: 0 16px 32px;
       }
@@ -18,16 +18,22 @@
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
         background: #fff;
       }
-      /* Styles appliqués au contenu généré par TinyMCE */
       .dictee-text {
         font-family: "Inter", system-ui, sans-serif;
         font-size: 1.02rem;
         line-height: 1.75;
         color: #334155;
       }
-      .dictee-text p { margin: 0 0 0.5em; }
-      .dictee-text a { color: #2563eb; }
-      .dictee-text ul, .dictee-text ol { padding-left: 1.5em; }
+      .dictee-text p {
+        margin: 0 0 0.5em;
+      }
+      .dictee-text a {
+        color: #2563eb;
+      }
+      .dictee-text ul,
+      .dictee-text ol {
+        padding-left: 1.5em;
+      }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -66,7 +72,7 @@
         <div class="accueil-hero__visual alpha-visuel">
           <div class="alpha-photo-wrap">
             <img
-              src="/images/Words%20that%20Matter.jpg"
+              src="/images/dic.jpg"
               alt="Livres ouverts et apprentissage"
               class="accueil-hero__img alpha-photo"
               width="640"
@@ -81,7 +87,20 @@
       <section class="dictee-shell">
         <div class="dictee-content">
           <div class="dictee-text">
-            <%- typeof rendered !== "undefined" && rendered != null ? rendered : "" %>
+            <%- typeof rendered !== "undefined" && rendered != null ? rendered :
+            "" %>
+          </div>
+        </div>
+        <div class="dictee-content">
+          <div class="dictee-text">
+            <%- typeof rendered_1 !== "undefined" && rendered_1 != null ?
+            rendered_1 : "" %>
+          </div>
+        </div>
+        <div class="dictee-content">
+          <div class="dictee-text">
+            <%- typeof rendered_2 !== "undefined" && rendered_2 != null ?
+            rendered_2 : "" %>
           </div>
         </div>
       </section>

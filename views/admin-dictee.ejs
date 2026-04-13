@@ -7,205 +7,85 @@
     <script
       src="https://cdn.tiny.cloud/1/dav6oy71jvutuqzn0mi106qf9y6y1qhsfgg7wy2x7ugtxdzl/tinymce/8/tinymce.min.js"
       referrerpolicy="origin"
-      crossorigin="anonymous"></script>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        font-family: system-ui, sans-serif;
-        background: #f1f5f9;
-        margin: 0;
-        padding: 24px;
-      }
-      .container {
-        max-width: 960px;
-        margin: 0 auto;
-      }
-      h1 {
-        font-size: 1.4rem;
-        color: #1e293b;
-        margin-bottom: 20px;
-      }
+      crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="/css/editeur_text.css" />
 
-      .editor-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-        align-items: start;
-      }
-      .panel {
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 10px;
-        overflow: hidden;
-      }
-      .panel-header {
-        background: #f8fafc;
-        border-bottom: 1px solid #e2e8f0;
-        padding: 10px 14px;
-        font-size: 0.82rem;
-        font-weight: 600;
-        color: #64748b;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-      }
-      textarea {
-        width: 100%;
-        min-height: 520px;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        padding: 14px;
-        border: none;
-        outline: none;
-        resize: vertical;
-        font-family: "Courier New", monospace;
-        color: #334155;
-      }
-      .preview-body {
-        min-height: 520px;
-        padding: 14px;
-        word-wrap: break-word;
-        font-family: "Inter", system-ui, sans-serif;
-        font-size: 0.95rem;
-        line-height: 1.75;
-        color: #334155;
-      }
-      .preview-body a {
-        color: #2563eb;
-      }
-
-      .actions {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-top: 16px;
-      }
-      button[type="submit"] {
-        padding: 10px 22px;
-        font-size: 1rem;
-        font-weight: 600;
-        background: #2563eb;
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-      }
-      button[type="submit"]:hover {
-        background: #1d4ed8;
-      }
-      .ok {
-        color: #16a34a;
-        font-weight: 600;
-        font-size: 0.95rem;
-      }
-      .legend {
-        margin-top: 14px;
-        font-size: 0.82rem;
-        color: #94a3b8;
-      }
-      .legend code {
-        background: #f1f5f9;
-        border-radius: 4px;
-        padding: 1px 5px;
-        font-family: monospace;
-        color: #475569;
-      }
-      a {
-        color: #2563eb;
-      }
-    </style>
   </head>
   <body>
     <div class="container">
-      <h1>Admin — Dictée</h1>
+      <h1>Administrateur Centre Alpha - Dictée</h1>
 
       <% if (typeof saved !== "undefined" && saved) { %>
-        <div class="ok" style="margin-bottom: 12px">Sauvegardé avec succès.✅ </div>
+        <div class="ok" style="margin-bottom: 12px">Sauvegardé avec succès. ✅</div>
       <% } %>
 
       <form id="dictee-form" method="POST" action="/admin/dictee">
-        <textarea id="text" name="text" spellcheck="true"><%= typeof text !== "undefined" && text != null ? text : "" %></textarea>
+        <div class="dictee-block">
+          <h2>Dictée du mois avec les fautes</h2>
+          <div class="panel">
+            <textarea id="text" name="text" class="dictee-mce" spellcheck="true"><%= typeof text !== "undefined" && text != null ? text : "" %></textarea>
+          </div>
+        </div>
+
+        <div class="dictee-block">
+          <h2 >Dictée corrigée du mois précédent avec les gagnants</h2>
+          <div class="panel">
+            <textarea id="text_1" name="text_1" class="dictee-mce" spellcheck="true"><%= typeof text_1 !== "undefined" && text_1 != null ? text_1 : "" %></textarea>
+          </div>
+        </div>
+
+        <div class="dictee-block">
+          <h2>Dictée corrigée du mois précédent avec les fautes</h2>
+          <div class="panel">
+            <textarea id="text_2" name="text_2" class="dictee-mce" spellcheck="true"><%= typeof text_2 !== "undefined" && text_2 != null ? text_2 : "" %></textarea>
+          </div>
+        </div>
 
         <div class="actions">
           <button type="submit">Enregistrer</button>
-          <a href="/dictee" target="_blank">Voir la dictée publique </a>
+          <a href="/dictee" target="_blank">Voir la dictée publique</a>
         </div>
       </form>
     </div>
 
     <script>
       tinymce.init({
-        selector: "#text",
+        selector: ".dictee-mce",
+        height: 520,
+        menubar: true,
         plugins: [
-          // Core editing features
-          "anchor",
+          "advlist",
           "autolink",
-          "charmap",
-          "codesample",
-          "emoticons",
-          "link",
           "lists",
-          "media",
+          "link",
+          "charmap",
+          "preview",
+          "anchor",
           "searchreplace",
-          "table",
           "visualblocks",
+          "code",
+          "fullscreen",
+          "insertdatetime",
+          "table",
+          "help",
           "wordcount",
-          // Your account includes a free trial of TinyMCE premium features
-          // Try the most popular premium features until Apr 21, 2026:
-          "checklist",
-          "mediaembed",
-          "casechange",
-          "formatpainter",
-          "pageembed",
-          "a11ychecker",
-          "tinymcespellchecker",
-          "permanentpen",
-          "powerpaste",
-          "advtable",
-          "advcode",
-          "advtemplate",
-          "tinymceai",
-          "uploadcare",
-          "mentions",
-          "tinycomments",
-          "tableofcontents",
-          "footnotes",
-          "mergetags",
-          "autocorrect",
-          "typography",
-          "inlinecss",
-          "markdown",
-          "importword",
-          "exportword",
-          "exportpdf",
         ],
         toolbar:
-          "undo redo | tinymceai-chat tinymceai-quickactions tinymceai-review | blocks fontfamily fontsize | bold italic underline strikethrough | link media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography uploadcare | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
-        tinycomments_mode: "embedded",
-        tinycomments_author: "Author name",
-        mergetags_list: [
-          { value: "First.Name", title: "First Name" },
-          { value: "Email", title: "Email" },
-        ],
-        tinymceai_token_provider: async () => {
-          await fetch(
-            `https://demo.api.tiny.cloud/1/dav6oy71jvutuqzn0mi106qf9y6y1qhsfgg7wy2x7ugtxdzl/auth/random`,
-            { method: "POST", credentials: "include" },
-          );
-          return {
-            token: await fetch(
-              `https://demo.api.tiny.cloud/1/dav6oy71jvutuqzn0mi106qf9y6y1qhsfgg7wy2x7ugtxdzl/jwt/tinymceai`,
-              { credentials: "include" },
-            ).then((r) => r.text()),
-          };
-        },
-        uploadcare_public_key: "859ecb55c5445e29c7f7",
+          "undo redo | blocks | fontsize fontfamily | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | link table charmap removeformat | code fullscreen | help",
+        font_family_formats:
+          "Calibri=Calibri, sans-serif;Arial=arial,helvetica,sans-serif;Georgia=georgia,palatino,serif;Times New Roman=times new roman,times,serif;Verdana=verdana,geneva,sans-serif;Inter=Inter,system-ui,sans-serif",
+        font_size_formats: "8pt 10pt 12pt 14pt 16pt 18pt 20pt 24pt 28pt 32pt",
+        content_style:
+          "body { font-family: Calibri, system-ui, sans-serif; font-size: 16px; line-height: 1.5; }",
+        paste_merge_formats: true,
+        branding: false,
+        promotion: false,
       });
     </script>
     <script>
       document.getElementById("dictee-form").addEventListener("submit", function () {
-        if (window.tinymce && tinymce.get("text")) {
+        if (window.tinymce) {
           tinymce.triggerSave();
         }
       });

@@ -37,7 +37,11 @@
           >
         </li>
         <li class="nav-item">
-          <a href="/dictee" class="nav-link">Dictée du mois</a>
+          <a
+            href="/dictee"
+            class="nav-link <%= typeof currentPath !== 'undefined' && currentPath === '/dictee' ? 'active' : '' %>"
+            >Dictée du mois</a
+          >
         </li>
         <!-- <li class="nav-item">
           <a href="/evenements" class="nav-link">Événements</a>
