@@ -14,8 +14,56 @@ body {
 h1 {
   font-size: 1.9rem;
   color: #006ce7;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   text-align: center;
+}
+
+.admin-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 12px;
+  margin: 0 auto 24px;
+  padding: 12px 16px;
+  max-width: 960px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+.admin-subnav__link {
+  display: inline-block;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1e40af;
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+.admin-subnav__link:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+.admin-subnav__link--current {
+  background: #2563eb;
+  color: #fff;
+  pointer-events: none;
+}
+.admin-subnav__link--current:hover {
+  background: #2563eb;
+  border-color: transparent;
+}
+
+.admin-event-placeholder {
+  margin: 1rem 0;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #64748b;
+  font-size: 0.95rem;
 }
 
 .dictee-block {

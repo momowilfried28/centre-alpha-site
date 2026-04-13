@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
@@ -8,6 +9,119 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 const dataFilePath = path.join(__dirname, "public", "data", "dictee.json");
+const eventFilePath = path.join(__dirname, "public", "data", "evenement.json");
+const eventImagedir = path.join(__dirname, "public", "images", "evenement");
+const eventImageUrlPrefix = "/images/evenement/";
+
+function ensureEventImageDir() {
+  if (!fs.existsSync(eventImagedir)) {
+    fs.mkdirSync(eventImagedir, { recursive: true });
+  }
+}
+ensureEventImageDir();
+
+function displayNameFromUpload(file, publicUrl) {
+  const raw = (file && file.originalname ? String(file.originalname) : "")
+    .trim()
+    .replace(/\0/g, "");
+  if (raw === "") {
+    return path.basename(publicUrl);
+  }
+  return path.basename(raw.replace(/\\/g, "/"));
+}
+
+function eventImageUrlToDisk(publicUrl) {
+  if (
+    typeof publicUrl !== "string" ||
+    !publicUrl.startsWith(eventImageUrlPrefix)
+  ) {
+    return null;
+  }
+  const b = publicUrl.slice(eventImageUrlPrefix.length);
+  if (!b || b.includes("/") || b.includes("..")) {
+    return null;
+  }
+  const full = path.join(eventImagedir, b);
+  const resolveDir = path.resolve(eventImagedir);
+  const rFile = path.resolve(full);
+  if (!rFile.startsWith(resolveDir + path.sep) && rFile !== resolveDir) {
+    return null;
+  }
+  return full;
+}
+
+function normalizeEventImages(imgs) {
+  return imgs
+    .map((x) => {
+      if (typeof x === "string") {
+        return { url: x, label: path.basename(x) };
+      }
+      if (x && typeof x.url === "string") {
+        const url = x.url;
+        const label =
+          typeof x.label === "string" && x.label.trim()
+            ? x.label.trim()
+            : path.basename(url);
+        return { url, label };
+      }
+      return null;
+    })
+    .filter(Boolean);
+}
+
+function readEventData() {
+  try {
+    const raw = fs.readFileSync(eventFilePath, "utf-8");
+    const parsed = JSON.parse(raw);
+    const imgs = Array.isArray(parsed.images) ? parsed.images : [];
+    const images = normalizeEventImages(imgs);
+    return { images };
+  } catch (err) {
+    console.error("Erreur de lecture du fichier JSON:", err);
+    return { images: [] };
+  }
+}
+
+function writeEventData({ images }) {
+  try {
+    const list = normalizeEventImages(Array.isArray(images) ? images : []);
+    const payload = {
+      images: list,
+    };
+    fs.writeFileSync(eventFilePath, JSON.stringify(payload, null, 2), "utf-8");
+  } catch (err) {
+    console.error("Erreur d'écriture du fichier JSON:", err);
+  }
+}
+
+const imageType = ["image/jpeg", "image/png", "image/gif", "image/webp"];
+
+const eventImageStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, eventImagedir);
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname || "").toLowerCase();
+    const safe = [".jpg", ".jpeg", ".png", ".gif", ".webp"].includes(ext)
+      ? ext
+      : ".jpg";
+    cb(null, `img-${Date.now()}${safe}`);
+  },
+});
+
+const eventImageUpload = multer({
+  storage: eventImageStorage,
+  limits: {
+    fileSize: 1024 * 1024 * 5,
+  },
+  fileFilter: (req, file, cb) => {
+    if (imageType.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      cb(new Error("Type de fichier non autorisé"));
+    }
+  },
+});
 
 function renderDicteeForPublic(raw) {
   if (typeof raw !== "string" || raw === "") return "";
@@ -70,6 +184,68 @@ function requireAdmin(req, res, next) {
 
   next();
 }
+
+app.post(
+  "/admin/event/upload-image",
+  requireAdmin,
+  (req, res, next) => {
+    eventImageUpload.single("image")(req, res, (err) => {
+      if (err) {
+        const d = readEventData();
+        return res.status(400).render("admin-event", {
+          currentPath: "/admin-event",
+          images: d.images,
+          error: err.message || "Upload échoué",
+        });
+      }
+      next();
+    });
+  },
+  (req, res) => {
+    if (!req.file) {
+      const d = readEventData();
+      return res.status(400).render("admin-event", {
+        currentPath: "/admin-event",
+        images: d.images,
+        error: "Aucun fichier reçu.",
+      });
+    }
+    const data = readEventData();
+    const publicUrl = `/images/evenement/${req.file.filename}`;
+    const label = displayNameFromUpload(req.file, publicUrl);
+    const images = [...data.images, { url: publicUrl, label }];
+    writeEventData({ images });
+    res.redirect("/admin-event?uploaded=1");
+  },
+);
+
+app.post("/admin/event/delete-image", requireAdmin, (req, res) => {
+  const targetUrl = (req.body.url || "").trim();
+  const data = readEventData();
+  if (!data.images.some((e) => e.url === targetUrl)) {
+    return res.status(400).render("admin-event", {
+      currentPath: "/admin-event",
+      images: data.images,
+      error: "Image inconnue ou déjà retirée.",
+    });
+  }
+  const diskPath = eventImageUrlToDisk(targetUrl);
+  if (diskPath && fs.existsSync(diskPath)) {
+    try {
+      fs.unlinkSync(diskPath);
+    } catch (err) {
+      console.error("Erreur de suppression de l'image:", err);
+      return res.status(500).render("admin-event", {
+        currentPath: "/admin-event",
+        images: data.images,
+        error: "Impossible de supprimer le fichier sur le serveur.",
+      });
+    }
+  }
+  const images = data.images.filter((e) => e.url !== targetUrl);
+  writeEventData({ images });
+  res.redirect("/admin-event?deleted=1");
+});
 
 app.get("/dictee", (req, res) => {
   const { text, text_1, text_2 } = readDicteeData();
@@ -138,6 +314,23 @@ function renderNotreHistoire(req, res) {
 app.get("/qui-sommes-nous", renderNotreHistoire);
 app.get("/notrehistoire", renderNotreHistoire);
 
+app.get("/admin-event", requireAdmin, (req, res) => {
+  const d = readEventData();
+  res.render("admin-event", {
+    currentPath: "/admin-event",
+    images: d.images,
+    uploaded: req.query.uploaded === "1",
+    deleted: req.query.deleted === "1",
+  });
+});
+
+app.get("/evenements", (req, res) => {
+  const { images } = readEventData();
+  res.render("evenements", {
+    currentPath: "/evenements",
+    images,
+  });
+});
 app.listen(8080, () => {
   console.log("Serveur lancé sur http://localhost:8080");
 });
