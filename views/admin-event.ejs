@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Événement</title>
+    <link rel="stylesheet" href="/css/editeur_text.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Administrateur Centre Alpha - Événement</h1>
+
+      <nav class="admin-subnav" aria-label="Navigation administration">
+        <a class="admin-subnav__link" href="/admin/dictee">Modifier la dictée</a>
+        <span class="admin-subnav__link admin-subnav__link--current">Modifier l'événement</span>
+      </nav>
+
+      <% if (typeof error !== "undefined" && error) { %>
+        <p class="ok" style="color: #b91c1c; margin-bottom: 12px"><%= error %></p>
+      <% } %>
+      <% if (typeof uploaded !== "undefined" && uploaded) { %>
+        <p class="ok" style="margin-bottom: 12px">Image téléversée.</p>
+      <% } %>
+      <% if (typeof deleted !== "undefined" && deleted) { %>
+        <p class="ok" style="margin-bottom: 12px">Affiche retirée.</p>
+      <% } %>
+      <form
+        method="POST"
+        action="/admin/event/upload-image"
+        enctype="multipart/form-data"
+        class="admin-event-placeholder"
+        style="margin-bottom: 20px">
+        <p><strong>Ajouter une image</strong> (enregistrée dans <code>public/images/evenement/</code> et affichée sur la page Événements)</p>
+        <input type="file" name="image" accept="image/jpeg,image/png,image/gif,image/webp" required />
+        <button type="submit" style="margin-top: 10px">Téléverser</button>
+      </form>
+
+      <% if (typeof images !== "undefined" && images.length) { %>
+        <div class="admin-event-placeholder" style="margin-top: 16px">
+          <p><strong>Images</strong> (nom du fichier et URL)</p>
+          <ul>
+            <% images.forEach(function (item) { %>
+              <li style="display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 12px">
+                <strong><%= item.label %></strong>
+                <span style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+                  <code><%= item.url %></code>
+                  <form method="POST" action="/admin/event/delete-image" style="display: inline">
+                    <input type="hidden" name="url" value="<%= item.url %>" />
+                    <button type="submit">Supprimer</button>
+                  </form>
+                </span>
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+      <% } %>
+
+      <p style="margin-top: 20px">
+        <a href="/evenements" target="_blank" rel="noopener noreferrer">Voir la page Événements sur le site</a>
+      </p>
+    </div>
+  </body>
+</html>

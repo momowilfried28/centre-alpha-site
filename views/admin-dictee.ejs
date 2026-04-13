@@ -16,6 +16,11 @@
     <div class="container">
       <h1>Administrateur Centre Alpha - Dictée</h1>
 
+      <nav class="admin-subnav" aria-label="Navigation administration">
+        <span class="admin-subnav__link admin-subnav__link--current">Modifier la Dictée</span>
+        <a class="admin-subnav__link" href="/admin-event">Modifier l’événement</a>
+      </nav>
+
       <% if (typeof saved !== "undefined" && saved) { %>
         <div class="ok" style="margin-bottom: 12px">Sauvegardé avec succès. ✅</div>
       <% } %>
@@ -44,7 +49,6 @@
 
         <div class="actions">
           <button type="submit">Enregistrer</button>
-          <a href="/dictee" target="_blank">Voir la dictée publique</a>
         </div>
       </form>
     </div>
