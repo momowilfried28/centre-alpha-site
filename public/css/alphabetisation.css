@@ -28,7 +28,7 @@
 }
 
 .page-alphabet .alpha-photo {
-  max-height: min(440px, 54vh);
+  max-height: min(440px, 40vh);
 }
 
 .page-alphabet .alpha-citation {

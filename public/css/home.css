@@ -33,8 +33,7 @@ html {
   gap: clamp(1.5rem, 4vw, 3rem);
   align-items: center;
   text-align: left;
-  margin-bottom: clamp(2rem, 5vw, 3.5rem);
-  padding: 0.5rem 0 1rem;
+  padding: 0.1rem 0 1rem;
 }
 
 .accueil-hero__intro {
@@ -100,7 +99,7 @@ html {
 }
 
 .accueil-hero__img {
-  width: 100%;
+  width: 80%;
   height: auto;
   max-height: min(420px, 52vh);
   object-fit: cover;

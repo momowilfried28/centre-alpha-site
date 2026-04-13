@@ -4,37 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dictée</title>
-    <style>
-      .dictee-shell {
-        max-width: auto;
-        margin: 0 auto;
-        padding: 0 16px 32px;
-      }
-      .dictee-content {
-        margin: 24px auto 0;
-        padding: clamp(1.25rem, 3vw, 1.75rem);
-        border-radius: 14px;
-        border: 1px solid rgba(15, 23, 42, 0.12);
-        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-        background: #fff;
-      }
-      .dictee-text {
-        font-family: "Inter", system-ui, sans-serif;
-        font-size: 1.02rem;
-        line-height: 1.75;
-        color: #334155;
-      }
-      .dictee-text p {
-        margin: 0 0 0.5em;
-      }
-      .dictee-text a {
-        color: #2563eb;
-      }
-      .dictee-text ul,
-      .dictee-text ol {
-        padding-left: 1.5em;
-      }
-    </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -52,9 +21,10 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/home.css" />
     <link rel="stylesheet" href="/css/alphabetisation.css" />
+    <link rel="stylesheet" href="/css/dictee.css" />
   </head>
 
-  <body class="hero-section page-alphabet">
+  <body class="hero-section page-alphabet page-dictee">
     <%- include("partials/navbar") %>
 
     <main class="accueil-container alpha-page">
