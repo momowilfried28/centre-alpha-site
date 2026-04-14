@@ -133,9 +133,10 @@
   margin: 0 auto 1.25rem;
   max-width: 32rem;
   font-family: "Inter", system-ui, sans-serif;
-  font-size: 0.98rem;
+  font-size: 1.2rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.88);
+  font-weight: 700;
+  color: #fec771;
 }
 
 .page-nous-joindre .nj-carte-btn {

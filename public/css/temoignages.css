@@ -27,17 +27,6 @@
   margin-inline: auto;
 }
 
-.page-temoignages .tem-intro::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  border-radius: 4px 0 0 4px;
-  background: linear-gradient(180deg, #1d3a9d, #7c3aed, #4f46e5);
-}
-
 .page-temoignages .tem-lead {
   font-family: "Archivo", sans-serif;
   font-optical-sizing: auto;
@@ -257,10 +246,6 @@
 }
 
 @media (max-width: 767px) {
-  .page-temoignages .tem-intro {
-    padding-left: clamp(1.25rem, 4vw, 1.75rem);
-  }
-
   .page-temoignages .tem-cta-inner {
     text-align: center;
   }
