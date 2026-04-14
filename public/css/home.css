@@ -99,7 +99,7 @@ html {
 }
 
 .accueil-hero__img {
-  width: 80%;
+  width: 100%;
   height: auto;
   max-height: min(420px, 52vh);
   object-fit: cover;
