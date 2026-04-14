@@ -27,7 +27,6 @@ body.page-services main.accueil-container.services-page > * {
 }
 
 .page-services .intro {
-  padding: clamp(1.25rem, 3vw, 2rem) 0 clamp(2rem, 4vw, 3rem);
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
   border-radius: 1.25rem;
 }
@@ -208,7 +207,7 @@ body.page-services main.accueil-container.services-page > * {
 .page-services .fiche {
   background: #fff;
   border-radius: 1.5rem;
-  padding: 1.35rem 1.35rem 1.5rem;
+  /* padding: 1.35rem 1.35rem 1.5rem; */
   border: 1px solid rgba(109, 40, 217, 0.1);
   box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
   display: flex;
@@ -232,6 +231,7 @@ body.page-services main.accueil-container.services-page > * {
   margin: 0 0 1rem;
   color: #21359a;
   width: 100%;
+  text-align: center;
 }
 
 .page-services .fiche-bleu .fiche-titre {
@@ -240,7 +240,6 @@ body.page-services main.accueil-container.services-page > * {
 
 .page-services .liste {
   margin: 0;
-  padding-left: 1.2rem;
   font-family: "Inter", system-ui, sans-serif;
   font-size: 0.95rem;
   line-height: 1.65;
