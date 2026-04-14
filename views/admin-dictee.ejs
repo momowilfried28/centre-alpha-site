@@ -7,48 +7,64 @@
     <script
       src="https://cdn.tiny.cloud/1/dav6oy71jvutuqzn0mi106qf9y6y1qhsfgg7wy2x7ugtxdzl/tinymce/8/tinymce.min.js"
       referrerpolicy="origin"
-      crossorigin="anonymous">
-    </script>
+      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/editeur_text.css" />
-
   </head>
-  <body>
+  <body class="admin-bg-themed">
     <div class="container">
       <h1>Administrateur Centre Alpha - Dictée</h1>
 
       <nav class="admin-subnav" aria-label="Navigation administration">
-        <span class="admin-subnav__link admin-subnav__link--current">Modifier la Dictée</span>
-        <a class="admin-subnav__link" href="/admin-event">Modifier l’événement</a>
+        <span class="admin-subnav__link admin-subnav__link--current"
+          >Modifier la Dictée</span
+        >
+        <a class="admin-subnav__link" href="/admin-event"
+          >Modifier l’événement</a
+        >
       </nav>
-
-      <% if (typeof saved !== "undefined" && saved) { %>
-        <div class="ok" style="margin-bottom: 12px">Sauvegardé avec succès. ✅</div>
-      <% } %>
 
       <form id="dictee-form" method="POST" action="/admin/dictee">
         <div class="dictee-block">
           <h2>Dictée du mois avec les fautes</h2>
           <div class="panel">
-            <textarea id="text" name="text" class="dictee-mce" spellcheck="true"><%= typeof text !== "undefined" && text != null ? text : "" %></textarea>
+            <textarea
+              id="text"
+              name="text"
+              class="dictee-mce"
+              spellcheck="true">
+<%= typeof text !== "undefined" && text != null ? text : "" %></textarea
+            >
           </div>
         </div>
 
         <div class="dictee-block">
-          <h2 >Dictée corrigée du mois précédent avec les gagnants</h2>
+          <h2>Dictée corrigée du mois précédent avec les gagnants</h2>
           <div class="panel">
-            <textarea id="text_1" name="text_1" class="dictee-mce" spellcheck="true"><%= typeof text_1 !== "undefined" && text_1 != null ? text_1 : "" %></textarea>
+            <textarea
+              id="text_1"
+              name="text_1"
+              class="dictee-mce"
+              spellcheck="true">
+<%= typeof text_1 !== "undefined" && text_1 != null ? text_1 : "" %></textarea
+            >
           </div>
         </div>
 
         <div class="dictee-block">
           <h2>Dictée corrigée du mois précédent avec les fautes</h2>
           <div class="panel">
-            <textarea id="text_2" name="text_2" class="dictee-mce" spellcheck="true"><%= typeof text_2 !== "undefined" && text_2 != null ? text_2 : "" %></textarea>
+            <textarea
+              id="text_2"
+              name="text_2"
+              class="dictee-mce"
+              spellcheck="true">
+<%= typeof text_2 !== "undefined" && text_2 != null ? text_2 : "" %></textarea
+            >
           </div>
         </div>
 
         <div class="actions">
-          <button type="submit">Enregistrer</button>
+          <button type="submit">Sauvegarder</button>
         </div>
       </form>
     </div>
@@ -88,11 +104,13 @@
       });
     </script>
     <script>
-      document.getElementById("dictee-form").addEventListener("submit", function () {
-        if (window.tinymce) {
-          tinymce.triggerSave();
-        }
-      });
+      document
+        .getElementById("dictee-form")
+        .addEventListener("submit", function () {
+          if (window.tinymce) {
+            tinymce.triggerSave();
+          }
+        });
     </script>
   </body>
 </html>

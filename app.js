@@ -191,31 +191,21 @@ app.post(
   (req, res, next) => {
     eventImageUpload.single("image")(req, res, (err) => {
       if (err) {
-        const d = readEventData();
-        return res.status(400).render("admin-event", {
-          currentPath: "/admin-event",
-          images: d.images,
-          error: err.message || "Upload échoué",
-        });
+        return res.redirect("/admin-event");
       }
       next();
     });
   },
   (req, res) => {
     if (!req.file) {
-      const d = readEventData();
-      return res.status(400).render("admin-event", {
-        currentPath: "/admin-event",
-        images: d.images,
-        error: "Aucun fichier reçu.",
-      });
+      return res.redirect("/admin-event");
     }
     const data = readEventData();
     const publicUrl = `/images/evenement/${req.file.filename}`;
     const label = displayNameFromUpload(req.file, publicUrl);
     const images = [...data.images, { url: publicUrl, label }];
     writeEventData({ images });
-    res.redirect("/admin-event?uploaded=1");
+    res.redirect("/admin-event");
   },
 );
 
@@ -223,11 +213,7 @@ app.post("/admin/event/delete-image", requireAdmin, (req, res) => {
   const targetUrl = (req.body.url || "").trim();
   const data = readEventData();
   if (!data.images.some((e) => e.url === targetUrl)) {
-    return res.status(400).render("admin-event", {
-      currentPath: "/admin-event",
-      images: data.images,
-      error: "Image inconnue ou déjà retirée.",
-    });
+    return res.redirect("/admin-event");
   }
   const diskPath = eventImageUrlToDisk(targetUrl);
   if (diskPath && fs.existsSync(diskPath)) {
@@ -235,16 +221,12 @@ app.post("/admin/event/delete-image", requireAdmin, (req, res) => {
       fs.unlinkSync(diskPath);
     } catch (err) {
       console.error("Erreur de suppression de l'image:", err);
-      return res.status(500).render("admin-event", {
-        currentPath: "/admin-event",
-        images: data.images,
-        error: "Impossible de supprimer le fichier sur le serveur.",
-      });
+      return res.redirect("/admin-event");
     }
   }
   const images = data.images.filter((e) => e.url !== targetUrl);
   writeEventData({ images });
-  res.redirect("/admin-event?deleted=1");
+  res.redirect("/admin-event");
 });
 
 app.get("/dictee", (req, res) => {
@@ -260,11 +242,9 @@ app.get("/dictee", (req, res) => {
 app.get("/admin/dictee", requireAdmin, (req, res) => {
   const { text, text_1, text_2 } = readDicteeData();
   res.render("admin-dictee", {
-    currentPath: "/admin/dictee",
     text,
     text_1,
     text_2,
-    saved: false,
   });
 });
 
@@ -273,13 +253,7 @@ app.post("/admin/dictee", requireAdmin, (req, res) => {
   const text_1 = req.body.text_1 || "";
   const text_2 = req.body.text_2 || "";
   writeDicteeData({ text, text_1, text_2 });
-  res.render("admin-dictee", {
-    currentPath: "/admin/dictee",
-    text,
-    text_1,
-    text_2,
-    saved: true,
-  });
+  res.redirect(303, "/admin/dictee");
 });
 
 app.get("/", (req, res) => {
@@ -317,10 +291,7 @@ app.get("/notrehistoire", renderNotreHistoire);
 app.get("/admin-event", requireAdmin, (req, res) => {
   const d = readEventData();
   res.render("admin-event", {
-    currentPath: "/admin-event",
     images: d.images,
-    uploaded: req.query.uploaded === "1",
-    deleted: req.query.deleted === "1",
   });
 });
 
