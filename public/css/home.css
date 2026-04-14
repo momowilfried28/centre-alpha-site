@@ -336,26 +336,26 @@ html {
 .site-footer-centered .footer-inner {
   max-width: 900px;
   margin: 0 auto;
-  padding: 1rem 1rem 1rem;
+  padding: 0.5rem 0.65rem 0.55rem;
   text-align: center;
 }
 
 .site-footer-centered .footer-logo {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #ffff;
+  color: #fff;
   letter-spacing: 0.02em;
-  margin: 0 0 1rem;
+  margin: 0 0 0.4rem;
 }
 
 .site-footer-centered .footer-address {
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
 }
 
 .site-footer-centered .footer-localisation {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.72rem;
   transition: color 0.2s ease;
 }
 
@@ -368,17 +368,17 @@ html {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.25rem 1.5rem;
-  margin-bottom: 1.25rem;
+  gap: 0.1rem 0.75rem;
+  margin-bottom: 0.45rem;
 }
 
 .site-footer-centered .footer-nav a {
   color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   transition: color 0.2s ease;
 }
 
@@ -389,21 +389,21 @@ html {
 .site-footer-centered .footer-social {
   display: flex;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-footer-centered .footer-social-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: blue;
   border: 1px solid rgba(139, 195, 74, 0.6);
   color: #fff;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.75rem;
   transition:
     border-color 0.2s ease,
     transform 0.2s ease;
@@ -442,26 +442,26 @@ html {
     font-weight: 500;
   }
   .site-footer-centered .footer-inner {
-    padding: 1.5rem 1rem;
+    padding: 0.5rem 0.6rem 0.55rem;
   }
   .site-footer-centered .footer-logo {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.35rem;
   }
   .site-footer-centered .footer-nav {
-    gap: 0.2rem 1rem;
+    gap: 0.08rem 0.6rem;
   }
   .site-footer-centered .footer-nav a {
-    font-size: 0.75rem;
+    font-size: 0.62rem;
   }
   .site-footer-centered .footer-social-link {
-    width: 36px;
-    height: 36px;
-    font-size: 0.9rem;
+    width: 26px;
+    height: 26px;
+    font-size: 0.72rem;
   }
   .site-footer-centered .footer-copy {
-    font-size: 0.7rem;
-    line-height: 1.5;
+    font-size: 0.58rem;
+    line-height: 1.4;
   }
 }
 
@@ -477,10 +477,10 @@ html {
     font-size: 1.2rem;
   }
   .site-footer-centered .footer-logo {
-    font-size: 1.5rem;
+    font-size: 1.15rem;
   }
   .site-footer-centered .footer-nav a {
-    font-size: 0.8rem;
+    font-size: 0.65rem;
   }
 }
 
@@ -492,10 +492,10 @@ html {
     font-size: 2.35rem;
   }
   .site-footer-centered .footer-inner {
-    padding: 2rem 1.5rem;
+    padding: 0.55rem 0.85rem 0.6rem;
   }
   .site-footer-centered .footer-nav {
-    gap: 0.25rem 1.25rem;
+    gap: 0.12rem 0.85rem;
   }
 }
 
@@ -526,11 +526,12 @@ html {
     font-size: 14px !important;
   }
   .site-footer-centered .footer-inner {
-    padding: 2.5rem 1.5rem;
+    padding: 0.55rem 1rem 0.65rem;
   }
   .site-footer-centered .footer-social-link {
-    width: 42px;
-    height: 42px;
+    width: 26px;
+    height: 26px;
+    font-size: 0.78rem;
   }
 }
 
