@@ -6,58 +6,65 @@
     <title>Admin - Événement</title>
     <link rel="stylesheet" href="/css/editeur_text.css" />
   </head>
-  <body>
+  <body class="admin-bg-themed">
     <div class="container">
-      <h1>Administrateur Centre Alpha - Événement</h1>
+      <header class="admin-page-header">
+        <h1>Événements</h1>
+        <p class="admin-page-header__sub">
+Gérez les affiches de la page Événements du site.        </p>
+      </header>
 
       <nav class="admin-subnav" aria-label="Navigation administration">
         <a class="admin-subnav__link" href="/admin/dictee">Modifier la dictée</a>
-        <span class="admin-subnav__link admin-subnav__link--current">Modifier l'événement</span>
+        <span class="admin-subnav__link admin-subnav__link--current">Modifier l’événement</span>
       </nav>
 
-      <% if (typeof error !== "undefined" && error) { %>
-        <p class="ok" style="color: #b91c1c; margin-bottom: 12px"><%= error %></p>
-      <% } %>
-      <% if (typeof uploaded !== "undefined" && uploaded) { %>
-        <p class="ok" style="margin-bottom: 12px">Image téléversée.</p>
-      <% } %>
-      <% if (typeof deleted !== "undefined" && deleted) { %>
-        <p class="ok" style="margin-bottom: 12px">Affiche retirée.</p>
-      <% } %>
-      <form
-        method="POST"
-        action="/admin/event/upload-image"
-        enctype="multipart/form-data"
-        class="admin-event-placeholder"
-        style="margin-bottom: 20px">
-        <p><strong>Ajouter une image</strong> (enregistrée dans <code>public/images/evenement/</code> et affichée sur la page Événements)</p>
-        <input type="file" name="image" accept="image/jpeg,image/png,image/gif,image/webp" required />
-        <button type="submit" style="margin-top: 10px">Téléverser</button>
-      </form>
+      <section class="admin-card" aria-labelledby="upload-title">
+        <h2 id="upload-title" class="admin-card__title">Ajouter une affiche</h2>
+        <p class="admin-card__hint">JPEG, PNG, GIF ou WebP — maximum 5&nbsp;Mo.</p>
+        <form
+          method="POST"
+          action="/admin/event/upload-image"
+          enctype="multipart/form-data"
+          class="admin-file-row">
+          <input type="file" name="image" accept="image/jpeg,image/png,image/gif,image/webp" required />
+          <button type="submit">Téléverser</button>
+        </form>
+      </section>
 
       <% if (typeof images !== "undefined" && images.length) { %>
-        <div class="admin-event-placeholder" style="margin-top: 16px">
-          <p><strong>Images</strong> (nom du fichier et URL)</p>
-          <ul>
+        <section class="admin-card" aria-labelledby="list-title">
+          <h2 id="list-title" class="admin-card__title">Affiches en cours</h2>
+          <ul class="admin-image-list">
             <% images.forEach(function (item) { %>
-              <li style="display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 12px">
-                <strong><%= item.label %></strong>
-                <span style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
-                  <code><%= item.url %></code>
-                  <form method="POST" action="/admin/event/delete-image" style="display: inline">
+              <li class="admin-image-card">
+                <img
+                  class="admin-image-card__thumb"
+                  src="<%= item.url %>"
+                  alt=""
+                  loading="lazy"
+                  width="88"
+                  height="88" />
+                <p class="admin-image-card__label"><%= item.label %></p>
+                <div class="admin-image-card__actions">
+                  <form method="POST" action="/admin/event/delete-image">
                     <input type="hidden" name="url" value="<%= item.url %>" />
-                    <button type="submit">Supprimer</button>
+                    <button type="submit" class="admin-btn--danger">Supprimer</button>
                   </form>
-                </span>
+                </div>
               </li>
             <% }); %>
           </ul>
-        </div>
+        </section>
+      <% } else { %>
+        <section class="admin-event-placeholder" aria-live="polite">
+          <p class="admin-empty">
+            <strong>Aucune affiche pour le moment.</strong> Ajoutez-en une avec le formulaire ci-dessus.
+          </p>
+        </section>
       <% } %>
 
-      <p style="margin-top: 20px">
-        <a href="/evenements" target="_blank" rel="noopener noreferrer">Voir la page Événements sur le site</a>
-      </p>
+    
     </div>
   </body>
 </html>
