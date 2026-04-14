@@ -204,7 +204,6 @@ body.page-services main.accueil-container.services-page > * {
   color: rgba(255, 255, 255, 0.92);
 }
 
-/* Rendez-vous */
 .page-services .rdv {
   width: 100%;
   margin-bottom: clamp(2rem, 4vw, 3rem);
