@@ -4,12 +4,21 @@
   padding: 1.25rem 1.5rem;
   border-radius: 1.25rem;
   font: 600 1rem/1.65 "Archivo", system-ui, sans-serif;
-  color: #fff;
-  background: linear-gradient(155deg, #3c4eb2 0%, #21359a 100%);
+  color: #1e293b;
+  border: 1px solid rgba(30, 64, 175, 0.18);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
 }
 
 .page-dictee .dictee-loi p {
   margin: 0 0 0.75em;
+  font-weight: 500;
+  color: #334155;
+  font-size: 1.125rem;
+}
+
+.page-dictee .dictee-loi p:first-child {
+  font-weight: 800;
+  color: #1d3a9d;
 }
 
 .page-dictee .dictee-loi p:last-child {
