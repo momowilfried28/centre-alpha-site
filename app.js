@@ -245,6 +245,9 @@ app.get("/admin/dictee", requireAdmin, (req, res) => {
     text,
     text_1,
     text_2,
+    tinyApiKey:
+      process.env.TINYMCE_API_KEY ||
+      "9ggmnkbcv0n2lwffjdg0gfgx8mzr5oltjwm6dbkkbzkiacxl",
   });
 });
 
@@ -302,6 +305,8 @@ app.get("/evenements", (req, res) => {
     images,
   });
 });
-app.listen(8080, () => {
-  console.log("Serveur lancé sur http://localhost:8080");
+const PORT = Number(process.env.PORT) || 8080;
+
+app.listen(PORT, () => {
+  console.log(`Serveur lancé sur http://localhost:${PORT}`);
 });

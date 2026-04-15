@@ -41,6 +41,14 @@ body.page-services main.accueil-container.services-page > * {
   line-height: 1.15;
   width: 100%;
 }
+.intro-t{
+  font-weight: 600;
+  font-size: 20px;
+  color: #9d1d1d;
+  /* letter-spacing: -0.03em; */
+  margin: 0 0 1rem;
+  line-height: 1.15;
+}
 
 .page-services .intro-texte {
   font-family: "Archivo", system-ui, sans-serif;
