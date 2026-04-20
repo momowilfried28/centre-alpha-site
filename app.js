@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
@@ -245,9 +246,7 @@ app.get("/admin/dictee", requireAdmin, (req, res) => {
     text,
     text_1,
     text_2,
-    tinyApiKey:
-      process.env.TINYMCE_API_KEY ||
-      "9ggmnkbcv0n2lwffjdg0gfgx8mzr5oltjwm6dbkkbzkiacxl",
+    tinyApiKey: process.env.TINYMCE_API_KEY,
   });
 });
 
