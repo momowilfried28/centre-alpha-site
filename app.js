@@ -10,16 +10,28 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 const dataFilePath = path.join(__dirname, "public", "data", "dictee.json");
-const eventFilePath = path.join(__dirname, "public", "data", "evenement.json");
-const eventImagedir = path.join(__dirname, "public", "images", "evenement");
+const eventFilePath =
+  process.env.EVENT_DATA_PATH ||
+  path.join(__dirname, "public", "data", "evenement.json");
+const eventImagedir =
+  process.env.EVENT_IMAGE_DIR ||
+  path.join(__dirname, "public", "images", "evenement");
 const eventImageUrlPrefix = "/images/evenement/";
 
-function ensureEventImageDir() {
+function ensureEventStorage() {
+  const eventDataDir = path.dirname(eventFilePath);
+  if (!fs.existsSync(eventDataDir)) {
+    fs.mkdirSync(eventDataDir, { recursive: true });
+  }
+  if (!fs.existsSync(eventFilePath)) {
+    fs.writeFileSync(eventFilePath, JSON.stringify({ images: [] }, null, 2), "utf-8");
+  }
   if (!fs.existsSync(eventImagedir)) {
     fs.mkdirSync(eventImagedir, { recursive: true });
   }
 }
-ensureEventImageDir();
+ensureEventStorage();
+app.use(eventImageUrlPrefix, express.static(eventImagedir));
 
 function displayNameFromUpload(file, publicUrl) {
   const raw = (file && file.originalname ? String(file.originalname) : "")
