@@ -43,6 +43,8 @@ function displayNameFromUpload(file, publicUrl) {
   return path.basename(raw.replace(/\\/g, "/"));
 }
 
+
+
 function eventImageUrlToDisk(publicUrl) {
   if (
     typeof publicUrl !== "string" ||
