@@ -5,6 +5,8 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
+const
+
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -189,8 +191,8 @@ function requireAdmin(req, res, next) {
   const user = sepIdx >= 0 ? decoded.slice(0, sepIdx) : "";
   const pass = sepIdx >= 0 ? decoded.slice(sepIdx + 1) : "";
 
-  const expectedUser = process.env.ADMIN_USER || "admin";
-  const expectedPass = process.env.ADMIN_PASS || "change-me";
+  const expectedUser = process.env.ADMIN_USER ;
+  const expectedPass = process.env.ADMIN_PASS ;
 
   if (user !== expectedUser || pass !== expectedPass) {
     res.set("WWW-Authenticate", 'Basic realm="Admin"');
