@@ -5,24 +5,36 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 
+// Dossier persistant Railway
+const DATA_DIR = "/data";
+
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const dataFilePath = path.join(__dirname, "public", "data", "dictee.json");
+// 🔹 Fichiers JSON dans le volume persistant pour railway
+const dataFilePath = path.join(DATA_DIR, "dictee.json");
 const eventFilePath =
-  process.env.EVENT_DATA_PATH ||
-  path.join(__dirname, "public", "data", "evenement.json");
+  process.env.EVENT_DATA_PATH || path.join(DATA_DIR, "evenement.json");
+
+// 🔹 Dossier d’images persistant pour railway
 const eventImagedir =
-  process.env.EVENT_IMAGE_DIR ||
-  path.join(__dirname, "public", "images", "evenement");
+  process.env.EVENT_IMAGE_DIR || path.join(DATA_DIR, "images", "evenement");
+
+// 🔹 URL publique
 const eventImageUrlPrefix = "/images/evenement/";
 
+// Création automatique des dossiers et fichiers
 function ensureEventStorage() {
+  if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
+
   const eventDataDir = path.dirname(eventFilePath);
   if (!fs.existsSync(eventDataDir)) {
     fs.mkdirSync(eventDataDir, { recursive: true });
   }
+
   if (!fs.existsSync(eventFilePath)) {
     fs.writeFileSync(
       eventFilePath,
@@ -30,11 +42,36 @@ function ensureEventStorage() {
       "utf-8",
     );
   }
+
   if (!fs.existsSync(eventImagedir)) {
     fs.mkdirSync(eventImagedir, { recursive: true });
   }
 }
+
+function ensureDicteeStorage() {
+  if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
+
+  const dicteeDir = path.dirname(dataFilePath);
+  if (!fs.existsSync(dicteeDir)) {
+    fs.mkdirSync(dicteeDir, { recursive: true });
+  }
+
+  if (!fs.existsSync(dataFilePath)) {
+    fs.writeFileSync(
+      dataFilePath,
+      JSON.stringify({ text: "", text_1: "", text_2: "" }, null, 2),
+      "utf-8",
+    );
+  }
+}
+
 ensureEventStorage();
+ensureDicteeStorage();
+
+// Servir les images depuis /data/images
+app.use("/images", express.static(path.join(DATA_DIR, "images")));
 app.use(eventImageUrlPrefix, express.static(eventImagedir));
 
 function displayNameFromUpload(file, publicUrl) {
@@ -140,6 +177,7 @@ const eventImageUpload = multer({
   },
 });
 
+// Fonctions pour la dictée
 function renderDicteeForPublic(raw) {
   if (typeof raw !== "string" || raw === "") return "";
   const trimmed = raw.trim();
@@ -177,6 +215,7 @@ function writeDicteeData({ text, text_1, text_2 }) {
   }
 }
 
+// Middleware d'authentification basique pour l'admin
 function requireAdmin(req, res, next) {
   const auth = req.headers.authorization || "";
   const [scheme, encoded] = auth.split(" ");
@@ -195,13 +234,14 @@ function requireAdmin(req, res, next) {
   const expectedPass = process.env.ADMIN_PASS;
 
   if (user !== expectedUser || pass !== expectedPass) {
-    res.set("WWW-Authenticate", 'Basic realm="Admin"');
+    res.set("WWW-Authenticate", 'Basic realm=\"Admin\"');
     return res.status(401).send("Identifiants invalides.");
   }
 
   next();
 }
 
+//routes pour gérer les images des événements depuis l'admin, et pour afficher les événements au public
 app.post(
   "/admin/event/upload-image",
   requireAdmin,
@@ -246,6 +286,7 @@ app.post("/admin/event/delete-image", requireAdmin, (req, res) => {
   res.redirect("/admin-event");
 });
 
+//route pour ajouter la dictée et la modifier depuis l'admin, et pour afficher la dictée au public
 app.get("/dictee", (req, res) => {
   const { text, text_1, text_2 } = readDicteeData();
   res.render("dictee", {
@@ -274,6 +315,7 @@ app.post("/admin/dictee", requireAdmin, (req, res) => {
   res.redirect(303, "/admin/dictee");
 });
 
+//routes des differentes pages du site
 app.get("/", (req, res) => {
   res.render("accueil", { currentPath: "/" });
 });
@@ -285,6 +327,7 @@ app.get("/alphabetisation", (req, res) => {
 app.get("/services", (req, res) => {
   res.render("services", { currentPath: "/services" });
 });
+
 app.get("/benevolat", (req, res) => {
   res.render("benevolat", { currentPath: "/benevolat" });
 });
@@ -292,9 +335,11 @@ app.get("/benevolat", (req, res) => {
 app.get("/faireundon", (req, res) => {
   res.render("faireundon", { currentPath: "/faireundon" });
 });
+
 app.get("/Nous_Joindre", (req, res) => {
   res.render("Nous_Joindre", { currentPath: "/Nous_Joindre" });
 });
+
 app.get("/temoignages", (req, res) => {
   res.render("temoignages", { currentPath: "/temoignages" });
 });
