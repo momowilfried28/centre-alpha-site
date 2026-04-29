@@ -12,16 +12,16 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// 🔹 Fichiers JSON dans le volume persistant pour railway
+//  Fichiers JSON dans le volume persistant pour railway
 const dataFilePath = path.join(DATA_DIR, "dictee.json");
 const eventFilePath =
   process.env.EVENT_DATA_PATH || path.join(DATA_DIR, "evenement.json");
 
-// 🔹 Dossier d’images persistant pour railway
+//  Dossier d’images persistant pour railway
 const eventImagedir =
   process.env.EVENT_IMAGE_DIR || path.join(DATA_DIR, "images", "evenement");
 
-// 🔹 URL publique
+// URL publique
 const eventImageUrlPrefix = "/images/evenement/";
 
 // Création automatique des dossiers et fichiers
